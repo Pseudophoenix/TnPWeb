@@ -1,0 +1,68 @@
+// Primary Colors
+$primaryColor1: #2ecc71; // Green
+$primaryColor2: #2980b9; // Blue
+
+// Secondary Colors (lighter versions)
+$secondaryColor1: rgb(0, 123, 47); // Lighter green
+$secondaryColor2: #5da8d6; // Lighter blue
+
+// Additional colors
+$textDark: #2c3e50;
+$textLight: #f0f2f5;
+$background: #f5f7fa;
+$backgroundGradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+$primaryGradient: linear-gradient(135deg, $primaryColor1 0%, $primaryColor2 100%);
+$secondaryGradient: linear-gradient(135deg, $secondaryColor1 0%, $secondaryColor2 100%);
+
+// Color variants (pre-calculated darker/lighter shades)
+$primaryColor1Dark: #27ae60; // Darker green (10% darker than primaryColor1)
+$primaryColor2Dark: #236fa4; // Darker blue (10% darker than primaryColor2)
+$secondaryColor1Dark: rgb(0, 98, 38); // Darker version of secondaryColor1
+$secondaryColor2Dark: #4a86b0; // Darker version of secondaryColor2
+
+// 3D Effects and Enhanced Shadows
+$tailShadowLight: 0 1px 3px rgba(255, 255, 255, 0.3);  // White top shadow for 3D effect
+$tailShadowDark: 0 2px 4px rgba(0, 0, 0, 0.25);        // Black bottom shadow for 3D effect
+$tailButtonShadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(255, 255, 255, 0.1) inset; // Combination shadow
+$tailLinkTextShadow: 1px 1px 2px rgba(0, 0, 0, 0.3);  // Text shadow for better readability
+$tailBoxElevation: 0 8px 15px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.15); // Elevated box effect
+$tailInsetEffect: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.1); // Pressed button effect
+$tailIconGlow: 0 0 8px rgba(46, 204, 113, 0.6);        // Glowing effect for icons on hover
+$tailBorder3d: 1px solid rgba(255, 255, 255, 0.1);     // Light border for 3D effect
+$tailElementDepth: 0 2px 0 rgba(0, 0, 0, 0.2);         // Bottom edge for depth perception
+
+// Enhanced Tail Component Colors for Better Visibility
+$tailLinkColor: #e0e6ec;        // Lighter color for better visibility
+$tailLinkHoverColor: #ffffff;   // White for maximum contrast on hover
+$tailLinkActiveColor: #e0ffff;  // Light cyan for active state
+$tailLinkHoverBackground: rgba(46, 204, 113, 0.3); // Higher opacity green for better visibility
+$tailIconColor: #7dc3ff;        // Brighter blue for icons
+$tailIconHoverColor: #4eff9e;   // Brighter green on hover
+$tailBackgroundOverlay: rgba(0, 0, 0, 0.1); // Slight dark overlay for better text contrast
+$tailSocialHoverBg: #2ecc71;    // Green background for social icons on hover
+$tailSocialActiveBg: #27ae60;   // Darker green for active state
+$tailLinkBorder: 1px solid rgba(255, 255, 255, 0);     // Invisible border initially
+$tailLinkHoverBorder: 1px solid rgba(255, 255, 255, 0.2);  // Visible border on hover
+$tailLinkOutline: 0 0 0 1px rgba(46, 204, 113, 0.5);   // Subtle outline for focus state
+
+// Form element colors
+$inputBorder: #ddd;
+$inputFocus: $primaryColor2;
+$inputShadow: rgba(52, 152, 219, 0.2);
+$validColor: $primaryColor1;
+$invalidColor: #e74c3c;
+
+// Shadows
+$boxShadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+$buttonShadow: 0 4px 12px rgba($primaryColor2, 0.3);
+$buttonHoverShadow: 0 7px 14px rgba($primaryColor2, 0.4);
+
+// Tail component colors
+$tailLinkColor: #e0e6ec;        // Lighter color for better visibility
+$tailLinkHoverColor: #ffffff;   // White for maximum contrast on hover
+$tailLinkHoverBackground: rgba(46, 204, 113, 0.2); // Semi-transparent green
+$tailIconColor: #5da8d6;        // Light blue for icons
+$tailIconHoverColor: #2ecc71;   // Green on hover
+$tailBackgroundOverlay: rgba(44, 62, 80, 0.1); // Slight dark overlay for better text contrast
+$tailSocialHoverBg: #2ecc71;    // Green background for social icons on hover
+$tailSocialActiveBg: #27ae60;   // Darker green for active state
