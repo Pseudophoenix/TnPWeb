@@ -1,5 +1,5 @@
 import React from 'react';
-import Timeline from './components/PastRecruiters/pastRecruiters';
+import Timeline from './components/PastRecruiters/PastRecruiters';
 import Header from './includes/Header.jsx';
 import Tail from './includes/Tail.jsx';
 import Login from './components/Login/Login.jsx';
