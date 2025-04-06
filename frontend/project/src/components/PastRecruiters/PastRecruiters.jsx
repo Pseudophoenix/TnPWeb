@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, Circle } from 'lucide-react';
-import '<div className="" />
-<P></P>astRecruiter.scss'; // Assuming you have some CSS for styling
+import './PastRecruiter.scss'; // Assuming you have some CSS for styling
 const timelineEvents = [
   {
     id: 1,
