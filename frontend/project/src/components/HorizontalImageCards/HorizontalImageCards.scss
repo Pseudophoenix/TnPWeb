@@ -1,0 +1,165 @@
+@use '../../styles/_variables.scss' as *;
+
+// Define breakpoints if not already defined
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+.card-container-horizontal-cards {
+  background-color: $background;
+  border-radius: 12px;
+  box-shadow: $boxShadow;
+  margin: 100px auto 100px auto;
+  padding: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box; // Include padding in width calculation
+  max-width: 1200px;
+  width: 80%;
+  min-width: none;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $primaryGradient;
+  }
+}
+
+.horizontal-cards {
+  width: 100%;
+  overflow: hidden; // Add this to prevent content from expanding parent
+  
+  &__scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0.5rem;
+    gap: 1.5rem;
+    flex-wrap: nowrap; // Ensure cards don't wrap to next line
+    white-space: nowrap; // Prevent text wrapping
+    width: 100%; // Set explicit width
+    overflow-y: hidden; // Prevent vertical scrolling
+    
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: thin;
+    scrollbar-color: $primaryColor1 transparent;
+    
+    /* For Chrome, Safari, and newer versions of Opera */
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: $primaryColor1;
+      border-radius: 20px;
+    }
+  }
+  
+  &__card {
+    flex: 0 0 auto;
+    width: 280px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: $tailShadowDark;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $tailBoxElevation;
+      
+      .horizontal-cards__image {
+        transform: scale(1.1);
+        filter: blur(2px) brightness(0.7);
+      }
+      
+      .horizontal-cards__overlay {
+        opacity: 1;
+      }
+    }
+  }
+  
+  &__image-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+  }
+  
+  &__title {
+    color: $textLight;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    text-shadow: $tailLinkTextShadow;
+  }
+  
+  &__description {
+    color: $textLight;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-shadow: $tailLinkTextShadow;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+  .horizontal-cards {
+    &__card {
+      width: 220px;
+    }
+    
+    &__image-container {
+      height: 300px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .horizontal-cards {
+    &__card {
+      width: 180px;
+    }
+    
+    &__image-container {
+      height: 250px;
+    }
+    
+    &__title {
+      font-size: 1.25rem;
+    }
+    
+    &__description {
+      font-size: 0.9rem;
+    }
+  }
+}

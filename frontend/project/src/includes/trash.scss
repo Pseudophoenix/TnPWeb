@@ -1,0 +1,453 @@
+@use '../styles/_variables.scss' as v;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.header-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: v.$background;
+    transition: all 0.3s ease;
+    box-shadow: v.$boxShadow;
+    font-family: 'Inter', sans-serif;
+
+    &.collapsed {
+        .header-top {
+            height: 0;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .header-main {
+            padding: 10px 20px;
+
+            .logo {
+                img {
+                    height: 40px;
+                }
+
+                .logo-text {
+                    h1 {
+                        font-size: 18px;
+                    }
+
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.header-top {
+    background: v.$primaryGradient;
+    color: v.$textLight;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+
+    .header-contact {
+        display: flex;
+        gap: 20px;
+
+        a {
+            color: v.$textLight;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            text-shadow: v.$tailLinkTextShadow;
+            transition: all 0.3s ease;
+
+            span {
+                font-weight: 600;
+                margin-right: 5px;
+            }
+
+            &:hover {
+                text-decoration: underline;
+                color: v.$tailLinkHoverColor;
+                transform: translateX(3px);
+            }
+        }
+    }
+
+    .header-actions {
+        display: flex;
+        gap: 15px;
+
+        .login-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 4px;
+            color: v.$textLight;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-shadow: v.$tailLinkTextShadow;
+            box-shadow: v.$tailButtonShadow;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: v.$tailLinkHoverBackground;
+                transform: translateY(-3px);
+                box-shadow: v.$buttonHoverShadow;
+            }
+
+            &.recruiter {
+                background-color: v.$primaryColor1;
+                color: v.$textLight;
+
+                &:hover {
+                    background-color: v.$primaryColor1Dark;
+                }
+            }
+        }
+    }
+}
+
+.header-main {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+
+    .logo {
+        a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: v.$textDark;
+
+            img {
+                height: 60px;
+                transition: all 0.3s ease;
+            }
+
+            .logo-text {
+                h1 {
+                    font-size: 22px;
+                    margin: 0;
+                    color: v.$primaryColor2;
+                    transition: all 0.3s ease;
+                    text-shadow: v.$tailLinkTextShadow;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 14px;
+                    color: v.$textDark;
+                    transition: all 0.3s ease;
+                }
+            }
+        }
+    }
+
+    .mobile-menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        color: v.$textDark;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1001;
+    }
+}
+
+.nav-fold-container {
+    background-color: v.$background;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &.mobile-open {
+        .navigation-container {
+            max-height: 1000px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.navigation-container {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    background-color: v.$background;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: v.$tailBorder3d;
+    box-shadow: v.$tailShadowDark;
+    overflow: hidden;
+
+    @media (min-width: 992px) {
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        flex-direction: row;
+    }
+}
+
+.main-navigation {
+    padding: 0 20px;
+    flex: 1;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        @media (min-width: 992px) {
+            flex-direction: row;
+        }
+
+        li {
+            position: relative;
+
+            a {
+                display: block;
+                padding: 15px 20px;
+                color: v.$textDark;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+                border-bottom: v.$tailLinkBorder;
+
+                &:hover {
+                    color: v.$primaryColor2;
+                    border-bottom: v.$tailLinkHoverBorder;
+                    transform: translateY(-2px);
+                }
+            }
+
+            &.has-dropdown {
+                .dropdown-indicator {
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover {
+                    .dropdown-menu {
+                        display: block;
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translateY(0);
+                    }
+
+                    .dropdown-indicator {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            .dropdown-menu {
+                position: relative;
+                display: none;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(10px);
+                transition: all 0.3s ease;
+                background-color: rgba(255, 255, 255, 0.9);
+                width: 100%;
+
+                @media (min-width: 992px) {
+                    position: absolute;
+                    min-width: 200px;
+                    background-color: v.$background;
+                    box-shadow: v.$tailBoxElevation;
+                    border-radius: 4px;
+                    padding: 10px 0;
+                }
+
+                li a {
+                    padding-left: 30px;
+
+                    @media (min-width: 992px) {
+                        padding: 8px 20px;
+                    }
+
+                    &:hover {
+                        background-color: v.$tailLinkHoverBackground;
+                        color: v.$primaryColor2;
+                        transform: translateX(5px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.header-search {
+    padding: 15px 20px;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        width: auto;
+        max-width: 300px;
+    }
+
+    form {
+        display: flex;
+        width: 100%;
+
+        input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid v.$inputBorder;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            box-shadow: v.$tailInsetEffect;
+
+            &:focus {
+                border-color: v.$inputFocus;
+                box-shadow: 0 0 5px v.$inputShadow;
+            }
+        }
+
+        button {
+            background: v.$primaryGradient;
+            border: none;
+            color: v.$textLight;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: v.$buttonShadow;
+
+            &:hover {
+                background: v.$secondaryGradient;
+                box-shadow: v.$buttonHoverShadow;
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+.drag-button-closed,
+.drag-button-open {
+    font-size: 1rem;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 36px;
+    background: v.$primaryGradient;
+    color: v.$textLight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: v.$tailButtonShadow;
+    transition: all 0.3s ease;
+    z-index: 1500;
+    border: none;
+
+    &:hover {
+        background: v.$secondaryGradient;
+        box-shadow: v.$buttonHoverShadow;
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+.drag-button-open {
+    width: 50px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+.dropdown-indicator {
+    margin-left: 8px;
+    font-size: 0.8em;
+}
+
+/* Mobile Styles */
+@media (max-width: 991px) {
+    .header-top {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+
+        .header-contact {
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .header-actions {
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    .header-main {
+        .mobile-menu-toggle {
+            display: block;
+        }
+    }
+
+    .main-navigation ul li {
+        &.has-dropdown.active {
+            .dropdown-menu {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .dropdown-indicator {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .header-main {
+        padding: 10px 15px;
+
+        .logo {
+            a {
+                gap: 10px;
+
+                img {
+                    height: 50px;
+                }
+
+                .logo-text {
+                    h1 {
+                        font-size: 18px;
+                    }
+
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .header-top {
+        padding: 8px 15px;
+
+        .header-contact a,
+        .header-actions .login-btn {
+            font-size: 12px;
+        }
+    }
+}

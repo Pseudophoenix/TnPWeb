@@ -1,0 +1,159 @@
+@use '../../styles/_variables.scss' as v;
+
+// Define breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+
+.card-container-interview-prep {
+  background-color: v.$background;
+  border-radius: 12px;
+  box-shadow: v.$boxShadow;
+  overflow: hidden;
+  margin: 100px auto 0 auto;
+  padding: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  // margin-top: 230px;
+  max-width: 80%;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: v.$tailBoxElevation;
+  }
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: v.$primaryGradient;
+  }
+}
+
+.interview-prep {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: white;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 5px;
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      padding: 5px 10px;
+      background: #4a6fa5;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:disabled {
+        background: #cccccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__zoom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      width: 60px;
+      height: 30px;
+      background: #4a6fa5;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  &__download-btn {
+    padding: 8px 15px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #218838;
+    }
+  }
+
+  &__pdf-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    border: 1px solid #ddd;
+    overflow: auto;
+  }
+
+  &__pdf-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+
+    &-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

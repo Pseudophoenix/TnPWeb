@@ -1,8 +1,38 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {useEffect } from 'react';
 import { FaChevronDown, FaChevronUp, FaSearch, FaUserCircle } from 'react-icons/fa';
 import './Header.scss';
+import { useState, useRef } from 'react';
+import { FaBars, FaTimes, FaChevronDown as FaChevronDownIcon } from 'react-icons/fa';
 
 const Header = () => {
+  // const [isNavVisible, setIsNavVisible] = useState(true);
+  // const headerRef = useRef(null);
+  // const dragButtonRef = useRef(null);
+  
+  // State for mobile menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // State for dropdown menus (for mobile)
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  // Toggle header collapse/expand
+  // const toggleHeader = () => {
+  //   setIsNavVisible(!isNavVisible);
+  // };
+
+  // Toggle mobile menu
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Toggle dropdown menus (for mobile)
+  const toggleDropdown = (dropdownName) => {
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
+
+  // Dynamic classes
+  // const headerClass = `header-container ${isNavVisible ? 'expanded' : 'collapsed'}`;
+  // const dragButtonClass = isNavVisible ? 'drag-button-open' : 'drag-button-closed';
   const [isExpanded, setIsExpanded] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(false);

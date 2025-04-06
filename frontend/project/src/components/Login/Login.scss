@@ -1,0 +1,339 @@
+@use '../../styles/variables' as v;
+@use "sass:color";
+// .login-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin:200px auto 100px auto;
+//   min-height: 100vh;
+//   background: v.$backgroundGradient;
+//   padding: 20px;
+  
+// }
+
+.login-card {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: v.$tailBoxElevation;
+  overflow: hidden;
+  padding: 35px;
+  position: relative;
+  margin: 100px auto 100px auto;
+  transition: transform 0.3s ease;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: v.$primaryGradient;
+  }
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: v.$tailBoxElevation;
+  }
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+  
+  h1 {
+    color: v.$textDark;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  
+  p {
+    color: color.scale(v.$textDark, $lightness: 30%);
+    font-size: 16px;
+  }
+}
+
+.login-form {
+  margin-bottom: 25px;
+  
+  .form-group {
+    margin-bottom: 20px;
+    
+    label {
+      display: block;
+      color: v.$textDark;
+      font-weight: 500;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+  }
+  
+  .input-wrapper {
+    position: relative;
+    
+    i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: color.scale(v.$textDark, $lightness: 30%);
+    }
+    
+    input {
+      width: 100%;
+      padding: 12px 15px 12px 40px;
+      border: 1px solid v.$inputBorder;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      background-color: white;
+      color: v.$textDark;
+      
+      &:focus {
+        border-color: v.$inputFocus;
+        box-shadow: 0 0 0 3px v.$inputShadow;
+        outline: none;
+      }
+      
+      &.invalid {
+        border-color: v.$invalidColor;
+        background-color: rgba(v.$invalidColor, 0.05);
+      }
+      
+      &::placeholder {
+      color: color.scale(v.$textDark, $lightness: 30%);
+      }
+    }
+  }
+  
+  .error-message {
+    color: v.$invalidColor;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+  }
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    color: color.scale(v.$textDark, $lightness: 30%);
+    
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      
+      &:checked ~ .checkmark {
+        background-color: v.$primaryColor1;
+        border-color: v.$primaryColor1;
+        
+        &:after {
+          display: block;
+        }
+      }
+    }
+    
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 18px;
+      width: 18px;
+      border: 1px solid v.$inputBorder;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+      
+      &:after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 6px;
+        top: 2px;
+        width: 4px;
+        height: 9px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+    
+    &:hover input ~ .checkmark {
+      background-color: rgba(v.$primaryColor1, 0.1);
+    }
+  }
+  
+  .forgot-password {
+    color: v.$primaryColor2;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: v.$primaryColor2Dark;
+      text-decoration: underline;
+    }
+  }
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background: v.$primaryGradient;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: v.$buttonShadow;
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    box-shadow: v.$buttonHoverShadow;
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: v.$tailInsetEffect;
+  }
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &.submitting {
+    background-image: linear-gradient(135deg, 
+      rgba(v.$primaryColor1, 0.8) 0%, 
+      rgba(v.$primaryColor2, 0.8) 100%);
+    cursor: not-allowed;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent
+      );
+      animation: loading 1.5s infinite;
+    }
+  }
+  
+  &:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+}
+
+@keyframes loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.social-login {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 1px solid v.$inputBorder;
+  
+  p {
+    color: color.scale(v.$textDark, $lightness: 30%);
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .social-buttons {
+    display: flex;
+    gap: 15px;
+    
+    .social-button {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      background: white;
+      border: 1px solid v.$inputBorder;
+      color: v.$textDark;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      
+      i {
+        font-size: 18px;
+      }
+      
+      &:hover {
+        box-shadow: v.$tailShadowDark;
+        border-color: color.scale(v.$textDark, $lightness: 30%);
+      }
+      
+      &:active {
+        box-shadow: v.$tailInsetEffect;
+      }
+      
+      &.google i {
+        color: #DB4437;
+      }
+      
+      &.microsoft i {
+        color: #00A4EF;
+      }
+    }
+  }
+}
+
+.signup-prompt {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  color: color.scale(v.$textDark, $lightness: 30%);
+  
+  a {
+    color: v.$primaryColor1;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: v.$primaryColor1Dark;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 20px;
+  }
+  
+  .social-buttons {
+    flex-direction: column;
+  }
+}

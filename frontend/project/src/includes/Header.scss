@@ -3,18 +3,23 @@
 
 // Portrait mode specific styles
 :root.portrait-mode {
+    // .nav-fold-container {
+    //     display: flex;
+    //     flex-direction: column;
+    // }
+
     .header-container {
         max-height: 100vh;
         overflow: visible;
     }
-    
+
     .navigation-container {
         flex-direction: column;
     }
-    
+
     .main-navigation ul {
         flex-direction: column !important;
-        
+
         li.has-dropdown {
             .dropdown-menu {
                 position: static !important;
@@ -26,55 +31,61 @@
         }
     }
 
-    .drag-button-closed, 
+    .drag-button-closed,
     .drag-button-open {
         display: flex !important;
-        z-index: 2000 !important;
+        z-index: 4000 !important;
+
+    }
+
+    .drag-button-open {
+        right: 100px;
+        z-index: 4000 !important;
     }
 
     .vertical-nav {
         background: v.$backgroundGradient;
         box-shadow: v.$tailBoxElevation;
         border-left: v.$tailBorder3d;
-        
+
         .vertical-nav-header {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            
+
             h3 {
                 color: v.$primaryColor2;
                 text-shadow: v.$tailLinkTextShadow;
             }
-            
+
             .close-vertical-nav {
                 color: v.$textDark;
-                
+
                 &:hover {
                     color: v.$primaryColor1;
                 }
             }
         }
-        
+
         ul {
             li {
                 a {
                     color: v.$textDark;
                     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                     transition: all 0.3s ease;
-                    
+
                     &:hover {
                         background-color: v.$tailLinkHoverBackground;
                         color: v.$primaryColor2;
                         transform: translateX(5px);
                     }
                 }
-                
+
                 &.has-dropdown {
                     .dropdown-menu {
                         background-color: rgba(255, 255, 255, 0.1);
-                        
+
                         li a {
                             padding-left: 30px;
-                            
+
                             &:hover {
                                 background-color: v.$tailLinkHoverBackground;
                             }
@@ -84,17 +95,17 @@
             }
         }
     }
-    
+
     .vertical-nav-overlay {
         background-color: v.$tailBackgroundOverlay;
     }
-    
+
     .open-vertical-nav {
         background: v.$primaryGradient;
         color: v.$textLight;
         box-shadow: v.$buttonShadow;
         transition: all 0.3s ease;
-        
+
         &:hover {
             background: v.$secondaryGradient;
             box-shadow: v.$buttonHoverShadow;
@@ -142,17 +153,11 @@
         }
     }
 
-    &.expanded {
-        .navigation-container {
-            max-height: 500px;
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-
+    &.expanded,
     &.nav-visible {
         .navigation-container {
-            max-height: 500px;
+            max-height: 1500px;
+            height: auto;
             opacity: 1;
             visibility: visible;
         }
@@ -279,25 +284,26 @@
     overflow: visible;
     background-color: v.$background;
     position: relative;
-    z-index: 1001; // Higher than header-container but lower than dropdowns
+    z-index: 1001;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     border-top: v.$tailBorder3d;
-    box-shadow: v.$tailShadowDark;
+    // box-shadow: v.$tailShadowDark;
 }
 
 .nav-fold-container {
     background-color: v.$background;
     overflow: visible;
+    align-items: center;
+
 }
 
 .main-navigation {
     padding: 0 20px;
     position: relative;
-    z-index: 1002; // Higher than navigation-container
+    z-index: 1002;
     flex: 1;
 
     ul {
@@ -351,7 +357,7 @@
                 visibility: hidden;
                 transform: translateY(10px);
                 transition: all 0.3s ease;
-                z-index: 1100; // Highest z-index for dropdowns
+                z-index: 1100;
 
                 li {
                     display: block;
@@ -415,66 +421,57 @@
     }
 }
 
-.drag-button-closed {
+.drag-button-closed,
+.drag-button-open {
     font-size: 1rem;
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 36px;
-    height: 36px;
+    // position: absolute;
+    // bottom: -20px;
+    // left: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(50%);
     background: v.$primaryGradient;
     color: v.$textLight;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
     cursor: pointer;
     box-shadow: v.$tailButtonShadow;
-    transition: all 0.3s ease;
+    // transition: all 0.3s ease;
     z-index: 1500;
     border: none;
 
     &:hover {
         background: v.$secondaryGradient;
         box-shadow: v.$buttonHoverShadow;
-        transform: translateX(-50%) scale(1.1);
+        // transform: translateX(-50%) scale(1.1);
     }
-    
+
     &:active {
-        transform: translateX(-50%) scale(0.95);
+        // transform: translateX(-50%) scale(0.95);
     }
 }
 
-.drag-button-open {
-    font-size: 1rem;
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 32px;
-    background: v.$primaryGradient;
-    color: v.$textLight;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: v.$tailButtonShadow;
-    transition: all 0.3s ease;
-    z-index: 1500;
-    border: none;
+.drag-button-closed {
+    width: 36px;
+    height: 36px;
+    margin-left: auto;
+    margin-right: auto;
+    // border-radius: 50%;
+}
 
-    &:hover {
-        background: v.$secondaryGradient;
-        box-shadow: v.$buttonHoverShadow;
-        transform: translateX(-50%) scale(1.1);
-    }
-    
-    &:active {
-        transform: translateX(-50%) scale(0.95);
-    }
+.drag-button-open {
+    width: 36px;
+    height: 36px;
+    margin-left: auto;
+    margin-right: auto;
+    // border-radius: 8px;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .dropdown-indicator {
@@ -484,6 +481,7 @@
 
 @media (max-width: 992px) {
     .header-top {
+
         .header-contact,
         .header-actions {
             gap: 10px;
@@ -493,97 +491,146 @@
             }
         }
     }
+    .nav-fold-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .drag-button-closed {
+        // right: 100px;
+        // position: relative;
+        // top:20px
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .drag-button-open {
+        // position: static;
+        top: 0;
+        width: 36px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 4000;
+    }
 
     .main-navigation ul li a {
         padding: 15px 12px;
     }
-}
 
-@media (max-width: 768px) {
-    .header-top {
-        flex-direction: column;
-        gap: 10px;
-        align-items: flex-start;
-
-        .header-contact {
-            flex-direction: column;
-            gap: 5px;
-        }
-    }
-
-    .navigation-container {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        height: 100vh;
-        background-color: white;
-        z-index: 1100; // Highest for mobile menu
-        transition: right 0.3s ease;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        overflow-y: auto;
-
-        &.mobile-open {
-            right: 0;
-        }
-
-        .main-navigation {
-            ul {
-                flex-direction: column;
-
-                li {
-                    margin: 10px 0;
-
-                    .dropdown-menu {
-                        position: static;
-                        box-shadow: none;
-                        opacity: 1;
-                        visibility: visible;
-                        transform: none;
-                        display: none;
-                        padding-left: 20px;
-                        z-index: inherit;
-                    }
-
-                    &.has-dropdown.active .dropdown-menu {
-                        display: block;
-                    }
-                }
-            }
-        }
-    }
-
-    .drag-button {
-        display: block;
+    .nav-list {
+        flex-direction: row;
+        gap: 5px;
+        display: flex;
+        margin-left: 20px;
+        height: auto;
+        // margin-left:400px;
+        // width: 100%;
     }
 
     .navigation-container {
         flex-direction: column;
-        padding-bottom: 20px;
-    }
-
-    .main-navigation ul {
-        flex-direction: column;
-    }
-    
-    .header-search {
+        gap: 5px;
         width: 100%;
-        padding: 10px 20px;
+        display: flex;
+    }
+        .drag-button-open {
+        position: absolute;
+        margin-top: 50%;
+
+        width: 36px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 4000;
+
     }
 }
 
-@media (orientation: portrait) {
-    .header-container {
-        padding-bottom: 20px;
-    }
-    
+// @media (max-width: 768px) {
+//     .header-top {
+//         flex-direction: column;
+//         gap: 10px;
+//         align-items: flex-start;
+
+//         .header-contact {
+//             flex-direction: column;
+//             gap: 5px;
+//         }
+//     }
+
+//     .drag-button-closed {
+//         position: static;
+//         top: 0;
+//         width: 36px;
+//         margin-left: auto;
+//         margin-right: auto;
+//         z-index: 400;
+//     }
+
+//     .drag-button-open {
+//         position: absolute;
+//         top: 0;
+
+//         width: 36px;
+//         margin-left: auto;
+//         margin-right: auto;
+//         z-index: 4000;
+
+//     }
+
+//     .navigation-container {
+//         position: fixed;
+//         top: 0;
+//         right: 0%;
+//         // width: ;
+//         height: auto;
+
+//         background-color: white;
+//         z-index: 1100;
+//         transition: right 0.3s ease;
+//         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+
+//         // overflow-y:scroll;
+//         &.mobile-open {
+//             right: 0;
+//         }
+
+//         .main-navigation {
+//             ul {
+//                 flex-direction: column;
+
+//                 li {
+//                     margin: 10px 0;
+
+//                     .dropdown-menu {
+//                         position: static;
+//                         box-shadow: none;
+//                         opacity: 1;
+//                         visibility: visible;
+//                         transform: none;
+//                         display: none;
+//                         padding-left: 20px;
+//                         z-index: inherit;
+//                     }
+
+//                     &.has-dropdown.active .dropdown-menu {
+//                         display: block;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+@media (orientation: landscape) {
     .navigation-container {
-        padding-bottom: 25px;
+        flex-direction: row;
+        gap: 5px;
+        display: flex;
     }
-    
-    .main-navigation ul li.has-dropdown .dropdown-menu {
-        width: 100%;
-        border-radius: 0;
+
+    .nav-list {
+        flex-direction: row;
+        gap: 5px;
+        display: flex;
     }
 }
 
@@ -591,11 +638,10 @@
     z-index: 1200;
 }
 
-// Social icons in header (if any)
 .social-icons {
     display: flex;
     gap: 15px;
-    
+
     a {
         display: flex;
         align-items: center;
@@ -607,15 +653,31 @@
         transition: all 0.3s ease;
         color: v.$textLight;
         text-decoration: none;
-        
+
         &:hover {
             background-color: v.$tailSocialHoverBg;
             transform: translateY(-3px);
             box-shadow: v.$tailIconGlow;
         }
-        
+
         i {
             font-size: 1rem;
         }
     }
+}
+
+.btn{
+    transform: translateY(50%);
+    background: v.$primaryGradient;
+    color: v.$textLight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: v.$tailButtonShadow;
+    width: 36px;
+    height: 36px;
+    // margin-left: auto;
+    // margin-right: auto;
+
 }

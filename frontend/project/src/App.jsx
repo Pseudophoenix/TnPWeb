@@ -1,31 +1,13 @@
-import { useState } from 'react';
-import './App.scss';
-import Form from './Form.jsx';
+import React from 'react';
+import Timeline from './components/PastRecruiters/pastRecruiters';
 import Header from './includes/Header.jsx';
 import Tail from './includes/Tail.jsx';
 import Login from './components/Login/Login.jsx';
-import AboutMessage from './components/AboutMessage/AboutMessage.jsx';
 import InterviewPrep from './components/InterviewPrepPDF/InterviewPrep.jsx';
+import AboutMessage from './components/AboutMessage/AboutMessage.jsx';
 import HorizontalImageCards from './components/HorizontalImageCards/HorizontalImageCards.jsx';
-// import { cards } from './components/HorizontalImageCards/HorizontalImageCardsData.jsx';
-import { useEffect } from 'react';
-// import { useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-// import { AuthContext } from './context/AuthContext.jsx';
-import { useCallback } from 'react';
-import { useMemo } from 'react';
-import { useReducer } from 'react';
-import { useRef } from 'react';
-import Timeline from './components/PastRecruiters/pastRecruiters.jsx';
-// import { useState } from 'react';
-
-
 function App() {
-
-  // Default props
-  const cards= {
+  const cards = {
     cards: [
       {
         imageSrc: 'https://i.pinimg.com/736x/06/fa/03/06fa03abb0747b71bbb5cd6c49cb64d7.jpg',
@@ -79,19 +61,18 @@ function App() {
       }
     ]
   }
-
-
   return (
-    <>
-      <Header></Header>
-      <Form></Form>
-      <Login></Login>
-      <AboutMessage></AboutMessage>
-      <InterviewPrep pdfSrc={"https://savarkar.org/en/pdfs/hindu-rashtra-darshan-en-v002.pdf"}></InterviewPrep>
-      <HorizontalImageCards cards={cards.cards}></HorizontalImageCards>
-      <Timeline></Timeline>
-      <Tail></Tail>
-    </>
+    <div className="min-h-screen bg-gradient-to-r to-[#d1d7e3] from-[#f5f7fa]">
+      <div className="pt-[120px]">
+        <Header></Header>
+        <Login></Login>
+        <Timeline />
+        <InterviewPrep pdfSrc={"https://savarkar.org/en/pdfs/hindu-rashtra-darshan-en-v002.pdf"} />
+        <AboutMessage ></AboutMessage>
+        <HorizontalImageCards cards={cards.cards}></HorizontalImageCards>
+        <Tail></Tail>
+      </div>
+    </div >
   );
 }
 

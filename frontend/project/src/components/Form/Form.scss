@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
 }
 
 body {
@@ -39,10 +40,17 @@ body {
 }
 
 .form-container {
-  width: 90%; /* Make the form take up 90% of its parent container */
+  width: 90%;
+  /* Make the form take up 90% of its parent container */
   // max-width: 600px; /* Set a maximum width so it doesn't get too wide */
   // width: 800px;
-  margin:180px auto  30px auto ;
+  margin: 180px auto 30px auto;
+
+  // width: 100%;
+  // max-width: 450px;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 30px;
   background-color: rgba(255, 255, 255, 0.92);
   border-radius: 15px;
   box-shadow: $boxShadow;
@@ -51,7 +59,23 @@ body {
   width: 90%;
   margin: 180px auto 30px auto;
   background-color: rgba(255, 255, 255, 0.92);
-  box-shadow: $boxShadow;
+  position: relative;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.005);
+    box-shadow: $tailBoxElevation;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: $primaryGradient;
+  }
 }
 
 h1 {
@@ -64,7 +88,7 @@ h1 {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   position: relative;
   padding-bottom: 12px;
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -91,12 +115,12 @@ h1 {
   gap: 8px;
   margin-bottom: 15px;
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-2px);
     transition: transform 0.3s ease;
   }
-  
+
   &:focus-within label {
     color: $primaryColor2;
     font-weight: 600;
@@ -125,7 +149,7 @@ select {
   font-family: 'Inter', sans-serif;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05) inset;
-  
+
   &:focus {
     outline: none;
     border-color: $inputFocus;
@@ -166,13 +190,13 @@ textarea {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: $buttonShadow;
-  
+
   &:hover {
     background: linear-gradient(135deg, $primaryColor1 0%, $primaryColor2Dark 100%);
     transform: translateY(-3px);
     box-shadow: $buttonHoverShadow;
   }
-  
+
   &:active {
     transform: translateY(0);
     box-shadow: 0 3px 8px rgba($primaryColor2, 0.3);
@@ -186,7 +210,8 @@ textarea {
 
   .form-container {
     padding: 20px;
-    width: 95%; /* Take up more width on smaller screens */
+    width: 95%;
+    /* Take up more width on smaller screens */
   }
 }
 
