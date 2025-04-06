@@ -2,6 +2,7 @@ import React from 'react';
 import Timeline from './components/PastRecruiters/PastRecruiters';
 import Header from './includes/Header.jsx';
 import Tail from './includes/Tail.jsx';
+import Form from './components/Form/Form.jsx';
 import Login from './components/Login/Login.jsx';
 import InterviewPrep from './components/InterviewPrepPDF/InterviewPrep.jsx';
 import AboutMessage from './components/AboutMessage/AboutMessage.jsx';
@@ -67,6 +68,7 @@ function App() {
         <Header></Header>
         <Login></Login>
         <Timeline />
+        <Form></Form>
         <InterviewPrep pdfSrc={"https://savarkar.org/en/pdfs/hindu-rashtra-darshan-en-v002.pdf"} />
         <AboutMessage ></AboutMessage>
         <HorizontalImageCards cards={cards.cards}></HorizontalImageCards>
