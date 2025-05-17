@@ -70,7 +70,7 @@ const Register = () => {
                 
                 console.log("Registration submission:", registrationData);
                 await register(registrationData);
-                // navigate('/');
+                navigate('/');
             }
         } catch (err) {
             console.log(err.response?.data?.msg || "Registration Failed");
