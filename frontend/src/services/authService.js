@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/auth';
+// const API_URL = 'http://localhost:5000/api/auth';
 
 // Register user
 const register = async (userData) => {
@@ -40,7 +40,7 @@ const getMe = async (token) => {
     },
   };
 
-  const response = await axios.get(`${API_URL}/me`, config);
+  const response = await axios.get(`${import.meta.env.VITE_API_URL}/me`, config);
   return response.data;
 };
 
