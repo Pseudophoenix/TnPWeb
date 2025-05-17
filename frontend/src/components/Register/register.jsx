@@ -20,7 +20,7 @@ const Register = () => {
         const { name, value, type, checked } = e.target;
         setFormData(prev => ({
             ...prev,
-            [name]: type === 'checkbox' ? checked : value
+            [name]: value
         }));
     };
 
@@ -49,9 +49,9 @@ const Register = () => {
             errors.confirmPassword = "Passwords do not match";
         }
 
-        if (!formData.acceptTerms) {
-            errors.acceptTerms = "You must accept the terms and conditions";
-        }
+        // if (!formData.acceptTerms) {
+        //     errors.acceptTerms = "You must accept the terms and conditions";
+        // }
 
         return errors;
     };
@@ -156,7 +156,7 @@ const Register = () => {
                         {formErrors.confirmPassword && <span className="error-message">{formErrors.confirmPassword}</span>}
                     </div>
 
-                    <div className="form-options">
+                    {/* <div className="form-options">
                         <label className="checkbox-container">
                             <input
                                 type="checkbox"
@@ -165,10 +165,10 @@ const Register = () => {
                                 onChange={handleChange}
                             />
                             <span className="checkmark"></span>
-                            I agree to the <a href="/terms">Terms and Conditions</a>
+                            I agree to the <NavLink href="/terms">Terms and Conditions</NavLink>
                         </label>
                         {formErrors.acceptTerms && <span className="error-message">{formErrors.acceptTerms}</span>}
-                    </div>
+                    </div> */}
 
                     <button
                         type="submit"

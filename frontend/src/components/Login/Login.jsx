@@ -8,7 +8,7 @@ const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-        rememberMe: false,
+        // rememberMe: false,
     });
     const navigate = useNavigate();
     const { login } = useAuth();
@@ -116,7 +116,7 @@ const Login = () => {
                     </div>
 
                     <div className="form-options">
-                        <label className="checkbox-container">
+                        {/* <label className="checkbox-container">
                             <input
                                 type="checkbox"
                                 name="rememberMe"
@@ -125,7 +125,7 @@ const Login = () => {
                             />
                             <span className="checkmark"></span>
                             Remember me
-                        </label>
+                        </label> */}
                         <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
                     </div>
 
