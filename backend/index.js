@@ -13,6 +13,7 @@ const app = express();
 
 const corsOptions = {
     origin: [
+        'https://tnp-web.vercel.app',
         'http://localhost:5000',
         'http://localhost:5173',
         'http://localhost:53589',

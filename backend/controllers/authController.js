@@ -52,17 +52,20 @@ exports.login = async (req, res) => {
     try {
         const user = await Student.findOne({ instMail: instMail });
         if (!user) {
-            return res.status(400).json({ msg: "Invalid credential" });
+            return res.status(400).json({ msg: "Mail Does Not exist" });
         }
 
         console.log(password);
-        user.comparePassword("password")
+        user.comparePassword(password,user.password)
             .then(isMatch => {
                 // --------alternate approach of using async/await----------- 
                 // const isMatch = await user.comparePassword("password");
                 // console.log(isMatch);
+                // if (!isMatch) {
+                //     return res.status(400).json({ msg: `${password}${user.password}"Incorrect Password"` });
+                // }
                 if (!isMatch) {
-                    return res.status(400).json({ msg: "Invaid credentials" });
+                    return res.status(400).json({ msg: "Incorrect Password" });
                 }
 
                 const token = generateToken(user._id);
