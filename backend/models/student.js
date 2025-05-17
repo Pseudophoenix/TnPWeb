@@ -6,14 +6,14 @@ const StudentSchema = new Schema({
     rollNumber: String,
     branch: String,
     dob: String,
-    department:String,
-    fatherName:String,
-    dob:String,
-    bloodGroup:String,
-    category:String,
-    address:String,
-    mobile:String,
-    motherName:String,
+    department: String,
+    fatherName: String,
+    dob: String,
+    bloodGroup: String,
+    category: String,
+    address: String,
+    mobile: String,
+    motherName: String,
     password: {
         type: String,
         required: true
@@ -31,11 +31,11 @@ const StudentSchema = new Schema({
     },// Primary Key,
     alternateEmail: String,
     linkedin: String,
-    skype:String,
+    skype: String,
     github: String,
-    tenthBoard:String,
-    tenthMarks:String,
-    twelfthMarks:String,
+    tenthBoard: String,
+    tenthMarks: String,
+    twelfthMarks: String,
     twelfthBoard: String,
     // marks: {
     //     '10': String,
@@ -43,18 +43,15 @@ const StudentSchema = new Schema({
     //     "JEE": String,
     //     "CGPA": String
     // }
-    jeeYear:String,
-    jeeScore:String,
+    jeeYear: String,
+    jeeScore: String,
 }, {
     timestamps: true
 });
 StudentSchema.pre('save', async function (next) {
     if (!this.isModified('password')) return next();
     try {
-        const salt = await bcrypt.genSalt(10);
-        this.password = await bcrypt.hash(this.password, salt);
         next();
-
     } catch (err) {
         next(err);
     }
@@ -72,25 +69,29 @@ StudentSchema.methods.comparePassword = function (candidatePassword) {
     return bcrypt
         .compare(candidatePassword, this.password)
         .then(doMatch => {
-            // if (doMatch) {
-            //     req.session.isLoggedIn = true;
-            //     req.session.user = user;
-            //     return req.session.save(err => {
-            //         console.log(err);
-            //         res.redirect('/');
-            //     });
-            // }
-            // return res.status(422).render('auth/login', {
-            //     path: '/login',
-            //     pageTitle: 'Login',
-            //     errorMessage: 'Invalid email or password.',
-            //     oldInput: {
-            //         email: email,
-            //         password: password
-            //     },
-            //     validationErrors: []
-            // });
-            return true;
+            console.log(this.password,candidatePassword);
+            if (doMatch) {
+                //     req.session.isLoggedIn = true;
+                //     req.session.user = user;
+                //     return req.session.save(err => {
+                //         console.log(err);
+                //         res.redirect('/');
+                //     });
+                // }
+                // return res.status(422).render('auth/login', {
+                //     path: '/login',
+                //     pageTitle: 'Login',
+                //     errorMessage: 'Invalid email or password.',
+                //     oldInput: {
+                //         email: email,
+                //         password: password
+                //     },
+                //     validationErrors: []
+                // });
+                console.log(doMatch);
+                return true;
+            }
+            else return false;
         })
         .catch(err => {
             console.log(err);

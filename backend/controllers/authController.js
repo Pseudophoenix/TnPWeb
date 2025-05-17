@@ -25,19 +25,23 @@ exports.register = async (req, res) => {
         if (user) {
             return res.status(400).json({ msg: "User already exists" });
         }
-        let password = await bcrypt.hash(initpassword, 10);
-        user = new Student({ name, instMail, password });
-        // console.log(encpassword);
-        await user.save();
+        // let password = await bcrypt.hash(initpassword,10);
+        bcrypt.hash(initpassword, 10).then(async (password) => {
+            user = new Student({ name, instMail, password });
+            // console.log(encpassword);
+            // console.log(password, initpassword, user.password);
+            await user.save();
 
-        const token = generateToken(user._id);
+            const token = generateToken(user._id);
 
-        res.status(201).json({
-            _id: user._id,
-            name: user.name,
-            instMail: user.instMail,
-            token
-        });
+            res.status(201).json({
+                _id: user._id,
+                name: user.name,
+                instMail: user.instMail,
+                token
+            });
+        }).catch();
+
     } catch (err) {
         console.log(err.message);
         res.status(500).send("Server error");
@@ -45,24 +49,24 @@ exports.register = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-    const instMail=req.body.email;
-    const {  password } = req.body;
+    const instMail = req.body.email;
+    const { password } = req.body;
     if (!instMail || !password)
         return res.status(200).json({ msg: "instMail and password are required" });
     try {
         const user = await Student.findOne({ instMail: instMail });
         if (!user) {
-            return res.status(400).json({ msg: "Invalid credential" });
+            return res.status(400).json({ msg: "Account doesn't exist" });
         }
 
         console.log(password);
-        user.comparePassword("password")
+        user.comparePassword(password)
             .then(isMatch => {
                 // --------alternate approach of using async/await----------- 
                 // const isMatch = await user.comparePassword("password");
                 // console.log(isMatch);
                 if (!isMatch) {
-                    return res.status(400).json({ msg: "Invaid credentials" });
+                    return res.status(400).json({ msg: "Incorrect Password" });
                 }
 
                 const token = generateToken(user._id);

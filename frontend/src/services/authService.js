@@ -7,7 +7,7 @@ const register = async (userData) => {
   const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/signup`, userData);
   console.log(userData);
   if (response.data) {
-    console.log(response.data);
+    console.log(`${response.data},'''''`);
     localStorage.setItem('user', JSON.stringify(response.data));
   }
   

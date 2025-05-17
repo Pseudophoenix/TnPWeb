@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { useAuth } from '../../context/authContext';
 
 const Register = () => {
+    const [message,setMessage]=useState();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -73,7 +74,8 @@ const Register = () => {
                 navigate('/');
             }
         } catch (err) {
-            console.log(err.response?.data?.msg || "Registration Failed");
+            setMessage(`${err.response?.data?.msg}`);
+            console.log(`${err.response?.data?.msg}` || "Registration Failed");
         } finally {
             setIsSubmitting(false);
         }
@@ -167,9 +169,12 @@ const Register = () => {
                             <span className="checkmark"></span>
                             I agree to the <NavLink href="/terms">Terms and Conditions</NavLink>
                         </label>
-                        {formErrors.acceptTerms && <span className="error-message">{formErrors.acceptTerms}</span>}
+                        {formErrors.acceptTerms 
+                        && <span className="error-message">{formErrors.acceptTerms}</span>}
                     </div> */}
-
+                    <div className="form-group">
+                    <span className="error-message">{message?message:""}</span>
+                    </div>
                     <button
                         type="submit"
                         className={`register-button ${isSubmitting ? 'submitting' : ''}`}

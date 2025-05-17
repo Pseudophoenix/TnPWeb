@@ -11,6 +11,7 @@ const Login = () => {
         // rememberMe: false,
     });
     const navigate = useNavigate();
+    const [message, setMessage] = useState();
     const { login } = useAuth();
     const [formErrors, setFormErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -64,6 +65,7 @@ const Login = () => {
             }
         }
         catch (err) {
+            setMessage(`${err.response?.data?.msg}`);
             console.log(err.response?.data?.msg || "Login Failed");
         } finally {
             setIsSubmitting(false);
@@ -128,7 +130,9 @@ const Login = () => {
                         </label> */}
                         <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
                     </div>
-
+                    <div className="form-group">
+                        <span className="error-message">{message ? message : ""}</span>
+                    </div>
                     <button
                         type="submit"
                         className={`login-button ${isSubmitting ? 'submitting' : ''}`}
