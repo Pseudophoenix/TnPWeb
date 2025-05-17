@@ -134,7 +134,7 @@ const ProfileComponent = () => {
       try {
         console.log(user);
         const token = user.token;
-        const response = await axios.get('http://localhost:5000/api/get-profile-data', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/get-profile-data`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

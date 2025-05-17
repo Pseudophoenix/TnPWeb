@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { useAuth } from '../../context/authContext';
 
 const Register = () => {
+    const [message,setMessage]=useState();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -20,7 +21,7 @@ const Register = () => {
         const { name, value, type, checked } = e.target;
         setFormData(prev => ({
             ...prev,
-            [name]: type === 'checkbox' ? checked : value
+            [name]: value
         }));
     };
 
@@ -49,9 +50,9 @@ const Register = () => {
             errors.confirmPassword = "Passwords do not match";
         }
 
-        if (!formData.acceptTerms) {
-            errors.acceptTerms = "You must accept the terms and conditions";
-        }
+        // if (!formData.acceptTerms) {
+        //     errors.acceptTerms = "You must accept the terms and conditions";
+        // }
 
         return errors;
     };
@@ -70,10 +71,11 @@ const Register = () => {
                 
                 console.log("Registration submission:", registrationData);
                 await register(registrationData);
-                // navigate('/');
+                navigate('/');
             }
         } catch (err) {
-            console.log(err.response?.data?.msg || "Registration Failed");
+            setMessage(`${err.response?.data?.msg}`);
+            console.log(`${err.response?.data?.msg}` || "Registration Failed");
         } finally {
             setIsSubmitting(false);
         }
@@ -156,7 +158,7 @@ const Register = () => {
                         {formErrors.confirmPassword && <span className="error-message">{formErrors.confirmPassword}</span>}
                     </div>
 
-                    <div className="form-options">
+                    {/* <div className="form-options">
                         <label className="checkbox-container">
                             <input
                                 type="checkbox"
@@ -165,11 +167,14 @@ const Register = () => {
                                 onChange={handleChange}
                             />
                             <span className="checkmark"></span>
-                            I agree to the <a href="/terms">Terms and Conditions</a>
+                            I agree to the <NavLink href="/terms">Terms and Conditions</NavLink>
                         </label>
-                        {formErrors.acceptTerms && <span className="error-message">{formErrors.acceptTerms}</span>}
+                        {formErrors.acceptTerms 
+                        && <span className="error-message">{formErrors.acceptTerms}</span>}
+                    </div> */}
+                    <div className="form-group">
+                    <span className="error-message">{message?message:""}</span>
                     </div>
-
                     <button
                         type="submit"
                         className={`register-button ${isSubmitting ? 'submitting' : ''}`}
@@ -189,7 +194,7 @@ const Register = () => {
                 </div>
 
                 <div className="login-prompt">
-                    <p>Already have an account? <a href="/login">Sign in</a></p>
+                    <p>Already have an account? <a href="/student-login">Sign in</a></p>
                 </div>
             </div>
         </div>

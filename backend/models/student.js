@@ -14,6 +14,14 @@ const StudentSchema = new Schema({
     address: String,
     mobile: String,
     motherName: String,
+    department: String,
+    fatherName: String,
+    dob: String,
+    bloodGroup: String,
+    category: String,
+    address: String,
+    mobile: String,
+    motherName: String,
     password: {
         type: String,
         required: true
@@ -54,7 +62,6 @@ StudentSchema.pre('save', async function (next) {
         // const salt = await bcrypt.genSalt(10);
         // this.password = await bcrypt.hash(this.password, salt);
         next();
-
     } catch (err) {
         next(err);
     }

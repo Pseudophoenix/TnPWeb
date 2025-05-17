@@ -2,7 +2,7 @@ exports.getHome=(req,res,next)=>{
     // res.redirect("/");
     console.log("Hey");
     return res.json({
-        message:"Hehy"
+        message:"Where"
     });
 
     // res.render('./form',{

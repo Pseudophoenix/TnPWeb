@@ -8,9 +8,10 @@ const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
-        rememberMe: false,
+        // rememberMe: false,
     });
     const navigate = useNavigate();
+    const [message, setMessage] = useState();
     const { login } = useAuth();
     const [formErrors, setFormErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -64,6 +65,7 @@ const Login = () => {
             }
         }
         catch (err) {
+            setMessage(`${err.response?.data?.msg}`);
             console.log(err.response?.data?.msg || "Login Failed");
         } finally {
             setIsSubmitting(false);
@@ -116,7 +118,7 @@ const Login = () => {
                     </div>
 
                     <div className="form-options">
-                        <label className="checkbox-container">
+                        {/* <label className="checkbox-container">
                             <input
                                 type="checkbox"
                                 name="rememberMe"
@@ -125,10 +127,12 @@ const Login = () => {
                             />
                             <span className="checkmark"></span>
                             Remember me
-                        </label>
+                        </label> */}
                         <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
                     </div>
-
+                    <div className="form-group">
+                        <span className="error-message">{message ? message : ""}</span>
+                    </div>
                     <button
                         type="submit"
                         className={`login-button ${isSubmitting ? 'submitting' : ''}`}

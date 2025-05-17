@@ -38,7 +38,7 @@ function StudentForm() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/get-profile-data', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/get-profile-data`, {
           headers: {
             Authorization: `Bearer ${user.token}` // or however your auth works
           }
