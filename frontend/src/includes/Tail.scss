@@ -1,0 +1,248 @@
+@use '../styles/variables' as v;
+@use 'sass:color';
+
+.tail-container {
+  background: v.$primaryGradient;
+  color: v.$textLight;
+  padding: 60px 0 20px;
+  margin-top: 80px;
+  font-family: 'Inter', sans-serif;
+  // width: 100%;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  // position: fixed;
+  /* Make it stick to the bottom */
+  // bottom: 0;
+  /* Align it to bottom */
+  // left: 0;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.tail-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.tail-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 30px;
+  padding: 0 15px;
+
+  h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 50px;
+      height: 2px;
+      background: v.$secondaryColor1;
+    }
+  }
+}
+
+.about-section p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: v.$textLight;
+}
+
+.contact-info {
+  margin-top: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+
+  i {
+    margin-right: 10px;
+    color: v.$secondaryColor1;
+    margin-top: 3px;
+  }
+
+  span {
+    line-height: 1.5;
+    color: v.$textLight;
+  }
+}
+
+.quick-links,
+.resources {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 12px;
+  }
+
+  a {
+    color: v.$textLight;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+
+    i {
+      margin-right: 8px;
+      color: v.$secondaryColor1;
+      font-size: 0.8rem;
+    }
+
+    &:hover {
+      color: v.$secondaryColor1;
+      transform: translateX(5px);
+    }
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    position: relative; // Added for exact positioning
+    box-sizing: content-box; // Ensure size calculations don't include padding
+
+    // Fix for React Icons to center properly in circle
+    svg {
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+      background-color: v.$secondaryColor2;
+      transform: translateY(-3px);
+    }
+  }
+
+  i {
+    font-size: 1.2rem;
+  }
+}
+
+.newsletter {
+  h4 {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #fff;
+  }
+}
+
+.newsletter-form {
+  display: flex;
+
+  input {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+  }
+
+  button {
+    padding: 0 15px;
+    border: none;
+    background-color: v.$secondaryColor1;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: color.adjust(v.$secondaryColor1, $lightness: -10%);
+    }
+  }
+}
+
+.tail-bottom {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 30px;
+
+  p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: v.$textLight;
+  }
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  a {
+    color: v.$textLight;
+    text-decoration: none;
+    margin: 5px 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: v.$secondaryColor1;
+    }
+  }
+
+  span {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .tail-section {
+    flex-basis: 100%;
+  }
+
+  .tail-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+    margin-top: 15px;
+  }
+}

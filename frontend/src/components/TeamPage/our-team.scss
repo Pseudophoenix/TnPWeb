@@ -1,0 +1,190 @@
+@use '../../styles/_variables.scss' as v;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+.team-profiles-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.team-profiles__heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: v.$primaryColor1;
+  margin-bottom: 3rem;
+  position: relative;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: v.$primaryGradient;
+    border-radius: 2px;
+  }
+}
+
+// Leader Section
+.team-profiles__leader {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+// Sub Leaders Section
+.team-profiles__subleaders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  
+  @media (min-width: $breakpoint-md) {
+    gap: 4rem;
+  }
+}
+
+// Team Members Section
+.team-profiles__members {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+// Profile Card Styles
+.profile-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: v.$boxShadow;
+  transition: all 0.3s ease;
+  max-width: 320px;
+  margin: 0 auto;
+  
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: v.$tailBoxElevation;
+  }
+  
+  &--leader {
+    max-width: 400px;
+    
+    .profile-card__image-wrapper {
+      height: 200px;
+      
+      @media (min-width: $breakpoint-md) {
+        height: 250px;
+      }
+    }
+    
+    .profile-card__name {
+      font-size: 1.75rem;
+    }
+  }
+  
+  &--subleader {
+    .profile-card__image-wrapper {
+      height: 180px;
+    }
+    
+    .profile-card__name {
+      font-size: 1.5rem;
+    }
+  }
+  
+  &__image-wrapper {
+    position: relative;
+    height: 150px;
+    overflow: hidden;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    
+    .profile-card:hover & {
+      transform: scale(1.05);
+    }
+  }
+  
+  &__badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: v.$primaryGradient;
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  &__content {
+    padding: 1.5rem;
+  }
+  
+  &__name {
+    font-size: 1.25rem;
+    color: v.$primaryColor1;
+    margin-bottom: 0.5rem;
+  }
+  
+  &__position {
+    color: v.$primaryColor2;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  &__description {
+    // color: v.$textMedium;
+    color:black;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  
+  &__social {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  &__social-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: v.$primaryColor1;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: v.$primaryColor2;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+// Responsive Adjustments
+@media (max-width: $breakpoint-sm) {
+  .team-profiles__subleaders {
+    flex-direction: column;
+    align-items: center;
+  }
+}

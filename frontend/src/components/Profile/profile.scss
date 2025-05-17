@@ -1,0 +1,168 @@
+.card-container-profile {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  
+  &__container {
+    display: flex;
+    flex-direction: row;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+  
+  &__image-column {
+    flex: 0 0 300px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @media (max-width: 768px) {
+      flex: 1;
+    }
+  }
+  
+  &__image-wrapper {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 4px solid #e9ecef;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  &__basic-info {
+    text-align: center;
+  }
+  
+  &__name {
+    font-size: 1.5rem;
+    color: #343a40;
+    margin-bottom: 5px;
+  }
+  
+  &__roll {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+  }
+  
+  &__dept {
+    font-size: 1rem;
+    color: #495057;
+    font-weight: 500;
+  }
+  
+  &__content-column {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  &__title {
+    font-size: 1.8rem;
+    color: #212529;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  &__subtitle {
+    font-size: 1.4rem;
+    color: #343a40;
+    margin: 20px 0 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  &__details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  &__academic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  &__detail-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__detail-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+  
+  &__detail-value {
+    font-size: 1rem;
+    color: #495057;
+    word-break: break-word;
+    
+    a {
+      color: #4361ee;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  &__academic-section {
+    margin-top: 30px;
+  }
+}
+.profile-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+  
+  p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #495057;
+  }
+}
+
+.profile-error {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #dc3545;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
