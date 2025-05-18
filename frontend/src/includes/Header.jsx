@@ -180,7 +180,7 @@ const Header = () => {
             absolute top-full left-0 w-48 bg-white shadow-lg rounded-lg py-2
             transform transition-all duration-200 origin-top
             ${activeDropdown === title ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'}
-          `}>
+          `} style={{zIndex:"1000"}}>
 
             {items.map((item) => {
               const itemPath = item.toLowerCase().replace(/\s+/g, '-');
