@@ -225,7 +225,7 @@ const Header = () => {
       <div className="header-top">
         <div className="header-contact">
           <a href="tel:+919876543210"><span>Call Us:</span> +91 98765 43210</a>
-          <a href="mailto:tnp@university.ac.in"><span>Email:</span> tnp@iiitmanipur.ac.in</a>
+          <a href="mailto:tnp@iiitmanipur.ac.in"><span>Email:</span> tnp@iiitmanipur.ac.in</a>
         </div>
         <div className="header-actions">
 

@@ -33,7 +33,7 @@ const Tail = () => {
             </div>
             <div className="contact-item">
               <i className="fa-solid fa-envelope"></i>
-              <span>tnp@iiitmanipur.ac.in</span>
+              <a href="mailto:tnp@iiitmanipur.ac.in"><span>Email:</span> tnp@iiitmanipur.ac.in</a>
             </div>
           </div>
         </div>
