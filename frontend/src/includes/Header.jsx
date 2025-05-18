@@ -314,7 +314,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <SearchBar />
+            {/* <SearchBar /> */}
             <NavLinks
               navItems={navItems}
               activeDropdown={activeDropdown}

@@ -14,7 +14,7 @@ const Home = ({ imageSrc, altText, title, description }) => {
         </div>
         <div className="home__image-wrapper">
           <img 
-            src={imageSrc || "https://i.pinimg.com/736x/24/a0/13/24a01362722eac62358cd3d01ca51203.jpg"} 
+            src={imageSrc || "https://storage.googleapis.com/tnpsite/encode_beautiful_day.png"} 
             alt={altText || "Home"} 
             className="home__image" 
           />
