@@ -65,12 +65,12 @@ const Tail = () => {
           <h3>Connect With Us</h3>
           <div className="social-icons">
             <a href="https://www.facebook.com/iiitmanipur/" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
-            <a href="#" aria-label="Twitter" title="Twitter"><FaTwitter /></a>
-            <a href="#" aria-label="LinkedIn" title="LinkedIn"><FaLinkedinIn /></a>
-            <a href="#" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
-            <a href="#" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
-            <a href="#" aria-label="WhatsApp" title="WhatsApp"><FaWhatsapp /></a>
-            <a href="#" aria-label="Telegram" title="Telegram"><FaTelegram /></a>
+            <a href="https://x.com/IIITManipur" aria-label="Twitter" title="Twitter"><FaTwitter /></a>
+            <a href="https://www.linkedin.com/school/indian-institute-of-information-technology-senapati-manipur/" aria-label="LinkedIn" title="LinkedIn"><FaLinkedinIn /></a>
+            <a href="https://www.instagram.com/iiitmanipur_official/" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
+            <a href="https://www.youtube.com/@indianinstituteofinformati695" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
+            {/* <a href="#" aria-label="WhatsApp" title="WhatsApp"><FaWhatsapp /></a> */}
+            {/* <a href="#" aria-label="Telegram" title="Telegram"><FaTelegram /></a> */}
           </div>
           <div className="newsletter">
             <h4>Subscribe to Newsletter</h4>
