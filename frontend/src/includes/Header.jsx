@@ -295,14 +295,16 @@ const Header = () => {
       {/* Main Header */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <img
-              src="https://iiitmanipur.ac.in/img/iiitm-logo.png"
-              alt="Institute Logo"
-              className="w-20 h-12 rounded"
-            />
-            <h1 className="text-xl font-bold text-gray-800">Indian Institute of Information Technology Senapati Manipur</h1>
-          </div>
+          <a href="/">
+            <div className="flex items-center space-x-4">
+              <img
+                src="https://iiitmanipur.ac.in/img/iiitm-logo.png"
+                alt="Institute Logo"
+                className="w-20 h-12 rounded"
+              />
+              <h1 className="text-xl font-bold text-gray-800">Indian Institute of Information Technology Senapati Manipur</h1>
+            </div>
+          </a>
 
           {/* Mobile Menu Button */}
           <button
