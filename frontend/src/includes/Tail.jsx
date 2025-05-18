@@ -25,7 +25,7 @@ const Tail = () => {
           <div className="contact-info">
             <div className="contact-item">
               <i className="fa-solid fa-location-dot"></i>
-              <span>123 University Campus, City, State - 123456</span>
+              <span>----------Address----------</span>
             </div>
             <div className="contact-item">
               <i className="fa-solid fa-phone"></i>
@@ -33,7 +33,7 @@ const Tail = () => {
             </div>
             <div className="contact-item">
               <i className="fa-solid fa-envelope"></i>
-              <span>tnp@university.ac.in</span>
+              <span>tnp@iiitmanipur.ac.in</span>
             </div>
           </div>
         </div>
@@ -54,10 +54,10 @@ const Tail = () => {
           <h3>Resources</h3>
           <ul>
             <li><a href="#"><i className="fa-solid fa-file-pdf"></i> Placement Brochure</a></li>
-            <li><a href="#"><i className="fa-solid fa-book"></i> Resume Guidelines</a></li>
-            <li><a href="#"><i className="fa-solid fa-calendar-days"></i> Event Calendar</a></li>
-            <li><a href="#"><i className="fa-solid fa-chalkboard-user"></i> Interview Prep</a></li>
-            <li><a href="#"><i className="fa-solid fa-briefcase"></i> Internship Opportunities</a></li>
+            {/* <li><a href="#"><i className="fa-solid fa-book"></i> </a></li> */}
+            {/* <li><a href="#"><i className="fa-solid fa-calendar-days"></i> Event Calendar</a></li> */}
+            <li><a href="#"><i className="fa-solid fa-chalkboard-user"></i> Placement Policy</a></li>
+            {/* <li><a href="#"><i className="fa-solid fa-briefcase"></i> Internship Opportunities</a></li> */}
           </ul>
         </div>
 
@@ -82,14 +82,14 @@ const Tail = () => {
         </div>
       </div>
       <div className="tail-bottom">
-        <p>&copy; {currentYear} Training & Placement Cell. All Rights Reserved.</p>
-        <div className="footer-links">
+        <p>&copy; {currentYear} Training & Placement Cell. All Rights Reserved.- To be removed</p>
+        {/* <div className="footer-links">
           <a href="#">Privacy Policy</a>
           <span>|</span>
           <a href="#">Terms of Service</a>
           <span>|</span>
           <a href="#">Site Map</a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
