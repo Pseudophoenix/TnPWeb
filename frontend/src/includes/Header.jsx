@@ -173,6 +173,7 @@ const Header = () => {
             {title === 'About' && <Info size={20} />}
             {title === 'For Recruiters' && <Building2 size={20} />}
             {title === 'For Students' && <GraduationCap size={20} />}
+            {title === 'Placement Stats' && <GraduationCap size={20} />}
             <span>{title}</span>
             <ChevronDown size={16} className={`transform transition-transform duration-200 ${activeDropdown === title ? 'rotate-180' : ''}`} />
           </button>

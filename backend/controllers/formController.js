@@ -5,7 +5,7 @@ exports.postForm = async (req, res, next) => {
             return res.status(401).json({ error: "Unauthorized" });
         }
 
-        const allowedUpdates = ['rollNumber', 'name', 'instMail','department','fatherName','motherName','dob','bloodGroup','category','address','mobile','alternateEmail','skype','linkedin','github','tenthBoard','tenthMarks','twelfthMarks','twelfthBoard','jeeYear','jeeScore']; // Whitelist safe fields
+        const allowedUpdates = ['rollNumber', 'name', 'instMail','department','fatherName','motherName','dob','bloodGroup','category','address','mobile','alternateEmail','skype','linkedin','github','tenthBoard','tenthMarks','twelfthMarks','otherTenthBoard','otherTwelfthBoard','twelfthBoard','jeeYear','jeeScore']; // Whitelist safe fields
         const updates = {};
         console.log(req.body);
         // Only copy allowed fields from req.body
