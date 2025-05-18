@@ -60,7 +60,7 @@ exports.login = async (req, res) => {
         }
 
         console.log(password);
-        user.comparePassword("password")
+        user.comparePassword(password)
             .then(isMatch => {
                 // --------alternate approach of using async/await----------- 
                 // const isMatch = await user.comparePassword("password");
