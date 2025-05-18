@@ -27,7 +27,7 @@ const StatisticsDashboard = ({title}) => {
   return (
     <div className="card-container-about-message">
       <div className="about-message">
-        <div className="min-h-screen p-8 bg-gray-50">
+        <div className="min-h-screen bg-gray-50" style={{padding:" 4rem 4rem"}}>
           <div className="max-w-6xl mx-auto">
             {/* <h1 className="text-3xl font-bold mb-8 text-[#2c3e50]">Placement Statistics</h1> */}
 <h2 className="team-profiles__heading">{title}</h2>

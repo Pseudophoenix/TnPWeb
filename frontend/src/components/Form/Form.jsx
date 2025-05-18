@@ -132,7 +132,7 @@ function StudentForm() {
   };
   return (
     <>
-      <div className="page-wrapper">
+      {/* <div className="page-wrapper"> */}
         <div className="form-container">
           <h2 className="team-profiles__heading">{"Student Information Form"}</h2>
           <form className="student-form" onSubmit={handleSubmit}>
@@ -451,7 +451,7 @@ function StudentForm() {
             </div>
           </form>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 }

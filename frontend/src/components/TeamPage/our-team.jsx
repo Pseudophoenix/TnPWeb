@@ -55,7 +55,7 @@ const TeamProfiles = () => {
   return (
     <div className="card-container-about-message">
       <div className="about-message">
-        <div className="team-profiles-container">
+        <div className="team-profiles-container" style={{padding:"4rem 4rem"}}>
           <h2 className="team-profiles__heading">Our Leadership Team</h2>
 
           {/* Leader Card */}
