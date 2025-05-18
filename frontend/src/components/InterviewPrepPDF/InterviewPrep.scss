@@ -12,8 +12,8 @@ $breakpoint-xl: 1200px;
   border-radius: 12px;
   box-shadow: v.$boxShadow;
   overflow: hidden;
-  margin: 100px auto 0 auto;
-  padding: 50px;
+  margin: 100px auto 100px auto;
+  // padding: 50px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   // margin-top: 230px;
@@ -35,9 +35,10 @@ $breakpoint-xl: 1200px;
 }
 
 .interview-prep {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  // max-width: 1200px;
+  margin: 0 0;
+  // width: 100%;
+  padding: 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background: white;

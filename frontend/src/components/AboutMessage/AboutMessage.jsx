@@ -5,6 +5,7 @@ const AboutMessage = ({ imageSrc, altText, title, description }) => {
   return (
     <div className="card-container-about-message">
       <div className="about-message">
+            <h2 className="team-profiles__heading">Director Sir's Message</h2>
         <div className="about-message__container">
           <div className="about-message__image-column">
             <div className="about-message__image-wrapper">

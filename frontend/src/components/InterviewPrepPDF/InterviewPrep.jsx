@@ -75,9 +75,9 @@ const InterviewPrep = ({ pdfSrc, title }) => {
 
   return (
     <div className="card-container-interview-prep">
-      <div className="interview-prep">
+      <div className="interview-prep"><h2 className="team-profiles__heading">{title}</h2>
         <div className="interview-prep__container">
-          {title && <h2 className="interview-prep__title">{title}</h2>}
+          {/* {title && <h2 className="interview-prep__title">{title}</h2>} */}
           
           <div className="interview-prep__controls">
             <div className="interview-prep__navigation">

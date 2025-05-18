@@ -133,10 +133,11 @@ $breakpoint-xl: 1200px;
   background-color: v.$background;
   border-radius: 12px;
   box-shadow: v.$boxShadow;
-  margin: 100px auto 0 auto;
+  margin: 100px auto 100px auto;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 80%;
+  width: 80vw;
+  height: fit-content;
   max-width: 1200px;
   position: relative;
   

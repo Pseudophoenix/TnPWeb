@@ -89,7 +89,6 @@ const TeamProfiles = () => {
         </div>
       </div>
     </div>
-
   );
 };
 
