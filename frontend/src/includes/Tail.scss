@@ -5,10 +5,12 @@
   background: v.$primaryGradient;
   color: v.$textLight;
   padding: 60px 0 20px;
-  // margin-top: 80px;
+  margin-top: 40px;
   font-family: 'Inter', sans-serif;
   // width: 100%;
   z-index: 1000;
+  position: relative;
+  
   bottom: 0;
   left: 0;
   // position: fixed;
@@ -17,7 +19,7 @@
   /* Align it to bottom */
   // left: 0;
   width: 100vw;
-  position: relative;
+  // position: relative;
   box-sizing: border-box;
 }
 

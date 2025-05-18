@@ -316,7 +316,7 @@ const Header = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-6" style={{zIndex:"999"}}>
             {/* <SearchBar /> */}
             <NavLinks
               navItems={navItems}
@@ -332,7 +332,7 @@ const Header = () => {
               lg:hidden fixed inset-y-0 right-0 transform w-64 bg-white shadow-lg
               transition-transform duration-300 ease-in-out z-50
               ${isOpen ? 'translate-x-0' : 'translate-x-full'}
-            `}>
+            `} style={{zIndex:"999",    width:"100%"}}>
         <div className="p-6">
           <button
             className="absolute top-4 right-4"
@@ -341,7 +341,7 @@ const Header = () => {
             <X />
           </button>
           <div className="mt-8">
-            <SearchBar />
+            {/* <SearchBar /> */}
             <MobileNavLinks
               navItems={navItems}
               activeDropdown={activeDropdown}
