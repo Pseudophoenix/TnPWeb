@@ -1,7 +1,7 @@
 import React from 'react';
 import { PieChart, Pie, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Cell, ResponsiveContainer } from 'recharts';
 
-const StatisticsDashboard = () => {
+const StatisticsDashboard = ({title}) => {
   // Dummy data for pie chart
   const pieData = [
     { name: 'Completed', value: 400 },
@@ -29,8 +29,8 @@ const StatisticsDashboard = () => {
       <div className="about-message">
         <div className="min-h-screen p-8 bg-gray-50">
           <div className="max-w-6xl mx-auto">
-            <h1 className="text-3xl font-bold mb-8 text-[#2c3e50]">Placement Statistics</h1>
-
+            {/* <h1 className="text-3xl font-bold mb-8 text-[#2c3e50]">Placement Statistics</h1> */}
+<h2 className="team-profiles__heading">{title}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Pie Chart Card */}
               <div className="bg-white rounded-lg shadow-[0_8px_20px_rgba(0,0,0,0.12)] p-6">
@@ -113,7 +113,10 @@ const StatisticsDashboard = () => {
     </div>
   );
 };
-
+StatisticsDashboard.defaultProps = {
+  // pdfSrc: './hindu-rashtra-darshan-en-v002.pdf',
+  title: 'Default'
+};
 export default StatisticsDashboard;
 
 

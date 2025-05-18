@@ -96,7 +96,7 @@ function App() {
                   <Form />
                 </PrivateRoute>} />
                 <Route path="/student-login" element={<Login />} />
-                <Route path="/statistics" element={<StatisticsDashboard />} />
+                <Route path="/statistics" element={<StatisticsDashboard title={"Placement Statistics"}/>} />
                 <Route path="/student-signup" element={<Register />} />
                 <Route path="/download-brochure" element={<InterviewPrep title={"Brochure"}/>} />
                 <Route path="/policy" element={<InterviewPrep title={"Policy"}/>} />

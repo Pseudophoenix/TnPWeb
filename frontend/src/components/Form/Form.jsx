@@ -134,7 +134,7 @@ function StudentForm() {
     <>
       <div className="page-wrapper">
         <div className="form-container">
-          <h1>Student Information Form</h1>
+          <h2 className="team-profiles__heading">{"Student Information Form"}</h2>
           <form className="student-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="rollNumber">Roll Number</label>
