@@ -64,7 +64,7 @@ const Tail = () => {
         <div className="tail-section connect">
           <h3>Connect With Us</h3>
           <div className="social-icons">
-            <a href="#" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
+            <a href="https://www.facebook.com/iiitmanipur/" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
             <a href="#" aria-label="Twitter" title="Twitter"><FaTwitter /></a>
             <a href="#" aria-label="LinkedIn" title="LinkedIn"><FaLinkedinIn /></a>
             <a href="#" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
