@@ -53,10 +53,10 @@ const Tail = () => {
         <div className="tail-section resources">
           <h3>Resources</h3>
           <ul>
-            <li><a href="#"><i className="fa-solid fa-file-pdf"></i> Placement Brochure</a></li>
+            <li><a href="https://storage.googleapis.com/tnpsite/Doc.pdf"><i className="fa-solid fa-file-pdf"></i> Placement Brochure</a></li>
             {/* <li><a href="#"><i className="fa-solid fa-book"></i> </a></li> */}
             {/* <li><a href="#"><i className="fa-solid fa-calendar-days"></i> Event Calendar</a></li> */}
-            <li><a href="#"><i className="fa-solid fa-chalkboard-user"></i> Placement Policy</a></li>
+            <li><a href="https://storage.googleapis.com/tnpsite/Doc.pdf"><i className="fa-solid fa-chalkboard-user"></i> Placement Policy</a></li>
             {/* <li><a href="#"><i className="fa-solid fa-briefcase"></i> Internship Opportunities</a></li> */}
           </ul>
         </div>
