@@ -9,7 +9,7 @@ const AboutMessage = ({ imageSrc, altText, title, description }) => {
           <div className="about-message__image-column">
             <div className="about-message__image-wrapper">
               <img 
-                src={imageSrc || `..\\..\\assets\\Director3.jpg`} 
+                src={imageSrc || `https://storage.googleapis.com/tnpsite/Director_IIITSM1975827381552293235_n.jpg`} 
                 alt={altText || "About us"} 
                 className="about-message__image" 
               />
