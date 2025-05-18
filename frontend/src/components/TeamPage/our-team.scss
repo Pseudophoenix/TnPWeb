@@ -18,7 +18,7 @@ $breakpoint-xl: 1200px;
   color: v.$primaryColor1;
   margin-bottom: 3rem;
   position: relative;
-  
+
   &:after {
     content: '';
     position: absolute;
@@ -46,7 +46,7 @@ $breakpoint-xl: 1200px;
   justify-content: center;
   gap: 2rem;
   margin-bottom: 3rem;
-  
+
   @media (min-width: $breakpoint-md) {
     gap: 4rem;
   }
@@ -58,6 +58,10 @@ $breakpoint-xl: 1200px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+
+  @media (min-width: $breakpoint-md) {
+    gap: 4rem;
+  }
 }
 
 // Profile Card Styles
@@ -69,55 +73,55 @@ $breakpoint-xl: 1200px;
   transition: all 0.3s ease;
   max-width: 320px;
   margin: 0 auto;
-  
+
   &:hover {
     transform: translateY(-10px);
     box-shadow: v.$tailBoxElevation;
   }
-  
+
   &--leader {
     max-width: 400px;
-    
+
     .profile-card__image-wrapper {
       height: 200px;
-      
+
       @media (min-width: $breakpoint-md) {
         height: 250px;
       }
     }
-    
+
     .profile-card__name {
       font-size: 1.75rem;
     }
   }
-  
+
   &--subleader {
     .profile-card__image-wrapper {
       height: 180px;
     }
-    
+
     .profile-card__name {
       font-size: 1.5rem;
     }
   }
-  
+
   &__image-wrapper {
     position: relative;
     height: 150px;
     overflow: hidden;
   }
-  
+
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-    
+
     .profile-card:hover & {
       transform: scale(1.05);
     }
   }
-  
+
   &__badge {
     position: absolute;
     top: 15px;
@@ -128,39 +132,39 @@ $breakpoint-xl: 1200px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
-  
+
   &__content {
     padding: 1.5rem;
   }
-  
+
   &__name {
     font-size: 1.25rem;
     color: v.$primaryColor1;
     margin-bottom: 0.5rem;
   }
-  
+
   &__position {
     color: v.$primaryColor2;
     font-weight: 600;
     margin-bottom: 1rem;
     font-size: 0.9rem;
   }
-  
+
   &__description {
     // color: v.$textMedium;
-    color:black;
+    color: black;
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
-  
+
   &__social {
     display: flex;
     gap: 0.5rem;
   }
-  
+
   &__social-btn {
     width: 35px;
     height: 35px;
@@ -173,7 +177,7 @@ $breakpoint-xl: 1200px;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    
+
     &:hover {
       background: v.$primaryColor2;
       transform: translateY(-3px);
@@ -184,6 +188,16 @@ $breakpoint-xl: 1200px;
 // Responsive Adjustments
 @media (max-width: $breakpoint-sm) {
   .team-profiles__subleaders {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-profiles__members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
     flex-direction: column;
     align-items: center;
   }
