@@ -75,7 +75,7 @@ function App() {
   // }
   return (
     <>
-    {/* bg-gradient-to-r to-[#d1d7e3] from-[#f5f7fa] */}
+      {/* bg-gradient-to-r to-[#d1d7e3] from-[#f5f7fa] */}
       <div className="min-h-screen ">
         <div className="pt-[120px]">
           <AuthProvider>
@@ -96,14 +96,15 @@ function App() {
                   <Form />
                 </PrivateRoute>} />
                 <Route path="/student-login" element={<Login />} />
-                <Route path="/statistics" element={<StatisticsDashboard title={"Placement Statistics"}/>} />
+                <Route path="/statistics" element={<StatisticsDashboard title={"Placement Statistics"} />} />
                 <Route path="/student-signup" element={<Register />} />
-                <Route path="/download-brochure" element={<InterviewPrep title={"Brochure"}/>} />
-                <Route path="/policy" element={<InterviewPrep title={"Policy"}/>} />
+                <Route path="/download-brochure" element={<InterviewPrep title={"Brochure"} />} />
+                <Route path="/policy" element={<InterviewPrep title={"Policy"} />} />
                 <Route path="/profile" element={<ProfileComponent />} />
                 <Route path="/our-team" element={<ProfileCard />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              <Tail></Tail>
             </BrowserRouter>
             {/* <Login></Login> */}
             {/* <Timeline /> */}
@@ -114,7 +115,6 @@ function App() {
           </AuthProvider>
         </div>
       </div >
-      <Tail></Tail>
     </>
   );
 }

@@ -80,7 +80,7 @@ const InterviewPrep = ({ pdfSrc, title }) => {
           {/* {title && <h2 className="interview-prep__title">{title}</h2>} */}
           
           <div className="interview-prep__controls">
-            <div className="interview-prep__navigation">
+            {/* <div className="interview-prep__navigation">
               <button onClick={goToPrevPage} disabled={currentPage <= 1}>
                 &lt; Prev
               </button>
@@ -90,7 +90,7 @@ const InterviewPrep = ({ pdfSrc, title }) => {
               <button onClick={goToNextPage} disabled={numPages && currentPage >= numPages}>
                 Next &gt;
               </button>
-            </div>
+            </div> */}
             
             <div className="interview-prep__zoom">
               <button onClick={zoomOut}>-</button>
@@ -131,7 +131,7 @@ const InterviewPrep = ({ pdfSrc, title }) => {
 };
 
 InterviewPrep.defaultProps = {
-  // pdfSrc: './hindu-rashtra-darshan-en-v002.pdf',
+  pdfSrc: 'https://storage.googleapis.com/tnpsite/Doc.pdf',
   title: 'Interview Preparation Guide'
 };
 
