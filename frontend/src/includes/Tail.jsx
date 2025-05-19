@@ -75,14 +75,14 @@ const Tail = () => {
           <div className="newsletter">
             <h4>Subscribe to Newsletter</h4>
             <div className="newsletter-form">
-              <input type="email" placeholder="Your Email" />
+              <input type="email" placeholder="Your Email" className='text-blue-500' /> {/* change 3 */}
               <button type="submit"><i className="fa-solid fa-paper-plane"></i></button>
             </div>
           </div>
         </div>
       </div>
       <div className="tail-bottom">
-        <p>&copy; {currentYear} Training & Placement Cell. All Rights Reserved.- To be removed</p>
+        <p>© {currentYear} Training & Placement Cell. All Rights Reserved.- To be removed</p>
         {/* <div className="footer-links">
           <a href="#">Privacy Policy</a>
           <span>|</span>
