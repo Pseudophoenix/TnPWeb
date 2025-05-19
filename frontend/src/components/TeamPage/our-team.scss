@@ -1,4 +1,6 @@
 @use '../../styles/_variables.scss' as v;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Doto:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Protest+Revolution&family=Sixtyfour+Convergence&display=swap');
+
 
 // Breakpoints
 $breakpoint-sm: 576px;
@@ -18,6 +20,7 @@ $breakpoint-xl: 1200px;
   color: v.$primaryColor1;
   margin-bottom: 3rem;
   position: relative;
+  font-family: "Merriweather", serif; // [changes : added Major fonts for using][loadtime is still perfect]
 
   &:after {
     content: '';
@@ -25,8 +28,9 @@ $breakpoint-xl: 1200px;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
+    width: 50%;//80px; [CHANGED THIS TO 50%]
+    height: 1px; //[ CHANGED 4px--> 1px]
+    margin-bottom: 0.5rem; // CHANGED GIVEN A BOTTOM MARGIN 
     background: v.$primaryGradient;
     border-radius: 2px;
   }

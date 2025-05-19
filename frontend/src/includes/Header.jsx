@@ -18,7 +18,7 @@ const Header = () => {
       // , 'Infrastructure'
     ],
     'For Recruiters': ['Recruitment Procedure', 'Download Brochure'],
-    'For Students': ['Form'
+    'For Students': ['Login' // [CHANGED FROM Form --> Login]
       // , 'Internships'
       , 'Policy']
   };
@@ -367,7 +367,7 @@ const Header = () => {
                 alt="Institute Logo"
                 className="w-18 h-12 rounded"
               />
-              <h1 className="text-xl font-bold text-gray-800">Indian Institute of Information Technology Senapati Manipur</h1>
+              <h2 className="text-xl font-bold text-gray-800">Indian Institute of Information Technology Senapati Manipur</h2>
             </div>
           </a>
 

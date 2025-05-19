@@ -8,3 +8,16 @@ CHANGES MADE ON 19TH MAY
 4. UPDATED THE DIRECTOR'S SIR MESSAGE PAGE AND SCSS UPDATED SPECIFICALLY FOR MOBILE VIEW
 
 5. CHANGED THE LEFT PADDING IN THE PastRecruiter's page
+
+VERSION 1.0.2
+
+6. REMOVED THE LINE AFTER INSTITUTE NAMING IN THE HEADER.
+
+7. Modified the after line of team-profile__header [Given margin, font change,width adjustment ]
+
+8. Modified the Header.scss file for improving header-top div allignment.
+
+9. Changes made to Tail.scss to decrease the Anchor-overflow in .resources
+
+10. form --> login [Text change in dropdown]
+
