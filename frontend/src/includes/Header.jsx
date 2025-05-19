@@ -18,7 +18,7 @@ const Header = () => {
       // , 'Infrastructure'
     ],
     'For Recruiters': ['Recruitment Procedure', 'Download Brochure'],
-    'For Students': ['Form'
+    'For Students': ['Login' // [CHANGED FROM Form --> Login]
       // , 'Internships'
       , 'Policy']
   };
@@ -158,6 +158,8 @@ const Header = () => {
     </div>
   );
 
+  // Original NavLinks [CHANGE: 1]
+  /*
   const NavLinks = ({ navItems, activeDropdown, toggleDropdown }) => (
     <>
       <a href="/" className="flex items-center space-x-1 hover:text-blue-600 transition-colors">
@@ -173,6 +175,7 @@ const Header = () => {
             {title === 'About' && <Info size={20} />}
             {title === 'For Recruiters' && <Building2 size={20} />}
             {title === 'For Students' && <GraduationCap size={20} />}
+            {title === 'Placement Stats' && <GraduationCap size={20} />}
             <span>{title}</span>
             <ChevronDown size={16} className={`transform transition-transform duration-200 ${activeDropdown === title ? 'rotate-180' : ''}`} />
           </button>
@@ -180,7 +183,7 @@ const Header = () => {
             absolute top-full left-0 w-48 bg-white shadow-lg rounded-lg py-2
             transform transition-all duration-200 origin-top
             ${activeDropdown === title ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'}
-          `}>
+          `} style={{zIndex:"1000"}}>
 
             {items.map((item) => {
               const itemPath = item.toLowerCase().replace(/\s+/g, '-');
@@ -204,13 +207,62 @@ const Header = () => {
         <BarChart size={20} />
         <span>Placement Statistics</span>
       </NavLink>
-      {/* <a href="/contact" className="flex items-center space-x-1 hover:text-blue-600 transition-colors">
-        <MessageSquare size={20} />
-        <span>Contact</span>
-      </a> */}
+    </>
+  );
+  */
+  // Updated NavLinks [CHANGE wrt 1]
+  const NavLinks = ({ navItems, activeDropdown, toggleDropdown, closeSidebar }) => (
+    <>
+      <a href="/" className="flex items-center space-x-1 hover:text-blue-600 transition-colors" onClick={closeSidebar}>
+        <Home size={20} />
+        <span>Home</span>
+      </a>
+      {Object.entries(navItems).map(([title, items]) => (
+        <div key={title} className="relative group">
+          <button
+            className="flex items-center space-x-1 hover:text-blue-600 transition-colors"
+            onClick={() => toggleDropdown(title)}
+          >
+            {title === 'About' && <Info size={20} />}
+            {title === 'For Recruiters' && <Building2 size={20} />}
+            {title === 'For Students' && <GraduationCap size={20} />}
+            {title === 'Placement Stats' && <GraduationCap size={20} />}
+            <span>{title}</span>
+            <ChevronDown size={16} className={`transform transition-transform duration-200 ${activeDropdown === title ? 'rotate-180' : ''}`} />
+          </button>
+          <div className={`
+            absolute top-full left-0 w-48 bg-white shadow-lg rounded-lg py-2
+            transform transition-all duration-200 origin-top
+            ${activeDropdown === title ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'}
+          `} style={{zIndex:"1000"}}>
+            {items.map((item) => {
+              const itemPath = item.toLowerCase().replace(/\s+/g, '-');
+              return (
+                <NavLink
+                  key={item}
+                  to={`/${itemPath}`}
+                  className={({ isActive }) =>
+                    `block px-4 py-2 hover:bg-blue-50 ${isActive ? 'bg-blue-50 text-blue-600' : 'text-gray-800'
+                    } hover:text-blue-600 transition-colors`
+                  }
+                  onClick={closeSidebar}
+                >
+                  {item}
+                </NavLink>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+      <NavLink to={"/statistics"} className="flex items-center space-x-1 hover:text-blue-600 transition-colors" onClick={closeSidebar}>
+        <BarChart size={20} />
+        <span>Placement Statistics</span>
+      </NavLink>
     </>
   );
 
+  // Previous MobileNavLinks [CHANGE: 2]
+  /*
   const MobileNavLinks = ({ navItems, activeDropdown, toggleDropdown }) => (
     <div className="flex flex-col space-y-4 mt-4">
       <NavLinks
@@ -220,12 +272,25 @@ const Header = () => {
       />
     </div>
   );
+  */
+  // Updated MobileNavLinks to include closeSidebar [CHANGE wrt 2] 
+  const MobileNavLinks = ({ navItems, activeDropdown, toggleDropdown }) => (
+    <div className="flex flex-col space-y-4 mt-4">
+      <NavLinks
+        navItems={navItems}
+        activeDropdown={activeDropdown}
+        toggleDropdown={toggleDropdown}
+        closeSidebar={() => setIsOpen(false)}
+      />
+    </div>
+  );
+
   return (
     <div ref={headerRef} className={headerClass}>
       <div className="header-top">
         <div className="header-contact">
           <a href="tel:+919876543210"><span>Call Us:</span> +91 98765 43210</a>
-          <a href="mailto:tnp@university.ac.in"><span>Email:</span> tnp@iiitmanipur.ac.in</a>
+          <a href="mailto:tnp@iiitmanipur.ac.in"><span>Email:</span> tnp@iiitmanipur.ac.in</a>
         </div>
         <div className="header-actions">
 
@@ -295,14 +360,16 @@ const Header = () => {
       {/* Main Header */}
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <img
-              src="https://iiitmanipur.ac.in/img/iiitm-logo.png"
-              alt="Institute Logo"
-              className="w-20 h-12 rounded"
-            />
-            <h1 className="text-xl font-bold text-gray-800">Indian Institute of Information Technology Senapati Manipur</h1>
-          </div>
+          <a href="/">
+            <div className="flex items-center space-x-4">
+              <img
+                src="https://iiitmanipur.ac.in/img/iiitm-logo.png"
+                alt="Institute Logo"
+                className="w-18 h-12 rounded"
+              />
+              <h2 className="text-xl font-bold text-gray-800">Indian Institute of Information Technology Senapati Manipur</h2>
+            </div>
+          </a>
 
           {/* Mobile Menu Button */}
           <button
@@ -313,7 +380,7 @@ const Header = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          <nav className="hidden lg:flex items-center space-x-6" style={{zIndex:"999"}}>
             {/* <SearchBar /> */}
             <NavLinks
               navItems={navItems}
@@ -329,7 +396,7 @@ const Header = () => {
               lg:hidden fixed inset-y-0 right-0 transform w-64 bg-white shadow-lg
               transition-transform duration-300 ease-in-out z-50
               ${isOpen ? 'translate-x-0' : 'translate-x-full'}
-            `}>
+            `} style={{zIndex:"999",    width:"100%"}}>
         <div className="p-6">
           <button
             className="absolute top-4 right-4"
@@ -338,7 +405,7 @@ const Header = () => {
             <X />
           </button>
           <div className="mt-8">
-            <SearchBar />
+            {/* <SearchBar /> */}
             <MobileNavLinks
               navItems={navItems}
               activeDropdown={activeDropdown}

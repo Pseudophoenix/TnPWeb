@@ -45,6 +45,8 @@ const StudentSchema = new Schema({
     tenthMarks: String,
     twelfthMarks: String,
     twelfthBoard: String,
+    otherTwelfthBoard:String,
+    otherTenthBoard:String,
     // marks: {
     //     '10': String,
     //     '12': String,

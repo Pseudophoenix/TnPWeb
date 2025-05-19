@@ -481,7 +481,6 @@
 
 @media (max-width: 992px) {
     .header-top {
-
         .header-contact,
         .header-actions {
             gap: 10px;
@@ -532,93 +531,138 @@
         width: 100%;
         display: flex;
     }
-        .drag-button-open {
+    .drag-button-open {
         position: absolute;
         margin-top: 50%;
-
         width: 36px;
         margin-left: auto;
         margin-right: auto;
         z-index: 4000;
-
     }
 }
 
-// @media (max-width: 768px) {
-//     .header-top {
-//         flex-direction: column;
-//         gap: 10px;
-//         align-items: flex-start;
+@media (max-width: 768px) {
+    .header-top {
+        // flex-direction: column;
+        flex-direction: column;
+        // gap: 10px;
+        gap: 8px;
+        // align-items: flex-start;
+        align-items: center;
+        // padding: 8px 20px;
+        padding: 6px 15px;
 
-//         .header-contact {
-//             flex-direction: column;
-//             gap: 5px;
-//         }
-//     }
+        .header-contact {
+            // flex-direction: column;
+            flex-direction: row;
+            // gap: 5px;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
 
-//     .drag-button-closed {
-//         position: static;
-//         top: 0;
-//         width: 36px;
-//         margin-left: auto;
-//         margin-right: auto;
-//         z-index: 400;
-//     }
+            a {
+                // font-size: 12px;
+                font-size: 11px;
 
-//     .drag-button-open {
-//         position: absolute;
-//         top: 0;
+                span {
+                    // margin-right: 5px;
+                    margin-right: 3px;
+                }
+            }
+        }
 
-//         width: 36px;
-//         margin-left: auto;
-//         margin-right: auto;
-//         z-index: 4000;
+        .header-actions {
+            // gap: 10px;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
 
-//     }
+            .login-btn {
+                // padding: 5px 12px;
+                padding: 4px 10px;
+                // font-size: 14px;
+                font-size: 11px;
 
-//     .navigation-container {
-//         position: fixed;
-//         top: 0;
-//         right: 0%;
-//         // width: ;
-//         height: auto;
+                &.recruiter {
+                    // background-color: v.$primaryColor1;
+                    background-color: v.$primaryColor1;
+                }
+            }
 
-//         background-color: white;
-//         z-index: 1100;
-//         transition: right 0.3s ease;
-//         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            .logout-btn {
+                // padding: 3px 8px;
+                padding: 4px 10px;
+                // font-size: 12px;
+                font-size: 11px;
+            }
 
-//         // overflow-y:scroll;
-//         &.mobile-open {
-//             right: 0;
-//         }
+            .profile-btn {
+                // width: 10px;
+                // height: 10px;
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
 
-//         .main-navigation {
-//             ul {
-//                 flex-direction: column;
+    .drag-button-closed {
+        position: static;
+        top: 0;
+        width: 36px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 400;
+    }
 
-//                 li {
-//                     margin: 10px 0;
+    .drag-button-open {
+        position: absolute;
+        top: 0;
+        width: 36px;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 4000;
+    }
 
-//                     .dropdown-menu {
-//                         position: static;
-//                         box-shadow: none;
-//                         opacity: 1;
-//                         visibility: visible;
-//                         transform: none;
-//                         display: none;
-//                         padding-left: 20px;
-//                         z-index: inherit;
-//                     }
+    .navigation-container {
+        position: fixed;
+        top: 0;
+        right: 0%;
+        height: auto;
+        background-color: white;
+        z-index: 1100;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
 
-//                     &.has-dropdown.active .dropdown-menu {
-//                         display: block;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+        &.mobile-open {
+            right: 0;
+        }
+
+        .main-navigation {
+            ul {
+                flex-direction: column;
+
+                li {
+                    margin: 10px 0;
+
+                    .dropdown-menu {
+                        position: static;
+                        box-shadow: none;
+                        opacity: 1;
+                        visibility: visible;
+                        transform: none;
+                        display: none;
+                        padding-left: 20px;
+                        z-index: inherit;
+                    }
+
+                    &.has-dropdown.active .dropdown-menu {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
 
 @media (orientation: landscape) {
     .navigation-container {
@@ -666,7 +710,7 @@
     }
 }
 
-.btn{
+.btn {
     transform: translateY(50%);
     background: v.$primaryGradient;
     color: v.$textLight;
@@ -679,5 +723,4 @@
     height: 36px;
     // margin-left: auto;
     // margin-right: auto;
-
 }

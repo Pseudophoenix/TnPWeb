@@ -1,3 +1,6 @@
+@use '../../styles/_variables.scss' as v;
+
+// OLDEST ONE 
 // @use '../../styles/_variables.scss' as v;
 
 // // Define breakpoints since they're missing in _variables.scss
@@ -121,7 +124,7 @@
 //   }
 // }
 
-@use '../../styles/_variables.scss' as v;
+
 
 // Define breakpoints since they're missing in _variables.scss
 $breakpoint-sm: 576px;
@@ -129,14 +132,79 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 
+// Original .card-container
+/*
+.card-container {
+  background-color: v.$background;
+  border-radius: 12px;
+  box-shadow: v.$boxShadow;
+  margin: 10rem auto 0 auto;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%;
+  position: relative;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: v.$tailBoxElevation;
+  }
+  
+  // Optional gradient border effect
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: v.$primaryGradient;
+  }
+}
+*/
+
+// Original .card-container-about-message
+/*
 .card-container-about-message {
   background-color: v.$background;
   border-radius: 12px;
   box-shadow: v.$boxShadow;
-  margin: 100px auto 0 auto;
+  margin: 100px auto 100px auto;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 80%;
+  width: 80vw;
+  height: fit-content;
+  max-width: 1200px;
+  position: relative;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: v.$tailBoxElevation;
+  }
+  
+  // Optional gradient border effect
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: v.$primaryGradient;
+  }
+}
+*/
+// Updated .card-container-about-message
+.card-container-about-message {
+  background-color: v.$background;
+  border-radius: 12px;
+  box-shadow: v.$boxShadow;
+  // Original: margin: 100px auto 100px auto
+  // Reduced margin for mobile to save vertical space
+  margin: 50px auto;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 90vw; // Adjusted from 80vw to better fit mobile screens
+  height: fit-content;
   max-width: 1200px;
   position: relative;
   
@@ -157,6 +225,8 @@ $breakpoint-xl: 1200px;
   }
 }
 
+// Original .about-message
+/*
 .about-message {
   padding: 2rem 0;
   
@@ -236,7 +306,123 @@ $breakpoint-xl: 1200px;
     color: v.$textDark;
   }
 }
+*/
+// Updated .about-message
+.about-message {
+  // Original: padding: 2rem 0
+  // Reduced padding for mobile
+  padding: 1rem 0;
+  
+  &__container {
+    display: flex;
+    // Original: margin: 50px 122px 50px 82px
+    // Reduced margins significantly for mobile to fit smaller screens
+    margin: 20px 20px;
+    flex-direction: column;
+    // Original: gap: 4rem
+    // Reduced gap for tighter spacing
+    gap: 2rem;
+    
+    @media (min-width: $breakpoint-md) {
+      flex-direction: row;
+      align-items: center;
+      margin: 50px 122px 50px 82px; // Restore original margins for desktop
+      gap: 4rem; // Restore original gap for desktop
+    }
+  }
+  
+  &__image-column {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    
+    @media (min-width: $breakpoint-md) {
+      flex: 0 0 40%;
+      max-width: 40%;
+    }
+  }
+  
+  &__image-wrapper {
+    // Original: width: 300px; height: 300px
+    // Reduced size for mobile
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid v.$primaryColor1;
+    box-shadow: v.$tailBoxElevation;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+    
+    @media (min-width: $breakpoint-md) {
+      width: 300px; // Restore original size for desktop
+      height: 300px;
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  &__content-column {
+    flex: 0 0 100%;
+    
+    @media (min-width: $breakpoint-md) {
+      flex: 0 0 60%;
+      max-width: 60%;
+    }
+  }
+  
+  &__title {
+    // Original: font-size: 1.75rem
+    // Reduced font size for mobile
+    font-size: 1.5rem;
+    color: v.$primaryColor1;
+    // Original: margin-bottom: 1rem
+    // Reduced margin for mobile
+    margin-bottom: 0.75rem;
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: v.$primaryGradient;
+      border-radius: 2px;
+    }
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.75rem; // Restore original font size for desktop
+      margin-bottom: 1rem;
+    }
+  }
+  
+  &__description {
+    // Original: font-size: 1rem
+    // Slightly reduced font size for mobile
+    font-size: 0.95rem;
+    // Original: line-height: 1.6
+    // Tightened line-height for mobile
+    line-height: 1.5;
+    color: v.$textDark;
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: 1rem; // Restore original font size for desktop
+      line-height: 1.6;
+    }
+  }
+}
 
+// Original media queries for .card-container
+/*
 @media (min-width: $breakpoint-lg) {
   .card-container {
     max-width: 90%;
@@ -246,5 +432,60 @@ $breakpoint-xl: 1200px;
 @media (min-width: $breakpoint-xl) {
   .card-container {
     max-width: 80%;
+  }
+}
+*/
+// Unchanged media queries for .card-container
+@media (min-width: $breakpoint-lg) {
+  .card-container {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .card-container {
+    max-width: 80%;
+  }
+}
+
+// New mobile-specific media query
+@media (max-width: $breakpoint-md) {
+  .card-container-about-message {
+    // Further reduce margin for very small screens
+    margin: 30px auto;
+    width: 95vw; // Maximize width for mobile
+  }
+
+  .about-message {
+    padding: 0.75rem 0; // Further reduce padding
+  }
+
+  .team-profiles__heading {
+    // Original: no specific style, assumed 1.75rem from .about-message__title
+    // Reduced font size for mobile
+    font-size: 1.4rem;
+    // Reduced margin for mobile
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .about-message__container {
+    margin: 15px 15px; // Even smaller margins for mobile
+    gap: 1.5rem; // Tighter gap
+  }
+
+  .about-message__image-wrapper {
+    width: 150px; // Further reduce image size for smaller screens
+    height: 150px;
+  }
+
+  .about-message__title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-message__description {
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }

@@ -33,7 +33,7 @@ const Tail = () => {
             </div>
             <div className="contact-item">
               <i className="fa-solid fa-envelope"></i>
-              <span>tnp@iiitmanipur.ac.in</span>
+              <a href="mailto:tnp@iiitmanipur.ac.in"><span>Email:</span> tnp@iiitmanipur.ac.in</a>
             </div>
           </div>
         </div>
@@ -53,10 +53,10 @@ const Tail = () => {
         <div className="tail-section resources">
           <h3>Resources</h3>
           <ul>
-            <li><a href="#"><i className="fa-solid fa-file-pdf"></i> Placement Brochure</a></li>
+            <li><a href="https://storage.googleapis.com/tnpsite/Doc.pdf"><i className="fa-solid fa-file-pdf"></i> Placement Brochure</a></li>
             {/* <li><a href="#"><i className="fa-solid fa-book"></i> </a></li> */}
             {/* <li><a href="#"><i className="fa-solid fa-calendar-days"></i> Event Calendar</a></li> */}
-            <li><a href="#"><i className="fa-solid fa-chalkboard-user"></i> Placement Policy</a></li>
+            <li><a href="https://storage.googleapis.com/tnpsite/Doc.pdf"><i className="fa-solid fa-chalkboard-user"></i> Placement Policy</a></li>
             {/* <li><a href="#"><i className="fa-solid fa-briefcase"></i> Internship Opportunities</a></li> */}
           </ul>
         </div>
@@ -64,25 +64,25 @@ const Tail = () => {
         <div className="tail-section connect">
           <h3>Connect With Us</h3>
           <div className="social-icons">
-            <a href="#" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
-            <a href="#" aria-label="Twitter" title="Twitter"><FaTwitter /></a>
-            <a href="#" aria-label="LinkedIn" title="LinkedIn"><FaLinkedinIn /></a>
-            <a href="#" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
-            <a href="#" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
-            <a href="#" aria-label="WhatsApp" title="WhatsApp"><FaWhatsapp /></a>
-            <a href="#" aria-label="Telegram" title="Telegram"><FaTelegram /></a>
+            <a href="https://www.facebook.com/iiitmanipur/" aria-label="Facebook" title="Facebook"><FaFacebookF /></a>
+            <a href="https://x.com/IIITManipur" aria-label="Twitter" title="Twitter"><FaTwitter /></a>
+            <a href="https://www.linkedin.com/school/indian-institute-of-information-technology-senapati-manipur/" aria-label="LinkedIn" title="LinkedIn"><FaLinkedinIn /></a>
+            <a href="https://www.instagram.com/iiitmanipur_official/" aria-label="Instagram" title="Instagram"><FaInstagram /></a>
+            <a href="https://www.youtube.com/@indianinstituteofinformati695" aria-label="YouTube" title="YouTube"><FaYoutube /></a>
+            {/* <a href="#" aria-label="WhatsApp" title="WhatsApp"><FaWhatsapp /></a> */}
+            {/* <a href="#" aria-label="Telegram" title="Telegram"><FaTelegram /></a> */}
           </div>
           <div className="newsletter">
             <h4>Subscribe to Newsletter</h4>
             <div className="newsletter-form">
-              <input type="email" placeholder="Your Email" />
+              <input type="email" placeholder="Your Email" className='text-blue-500' /> {/* change 3 */}
               <button type="submit"><i className="fa-solid fa-paper-plane"></i></button>
             </div>
           </div>
         </div>
       </div>
       <div className="tail-bottom">
-        <p>&copy; {currentYear} Training & Placement Cell. All Rights Reserved.- To be removed</p>
+        <p>© {currentYear} Training & Placement Cell. All Rights Reserved.- To be removed</p>
         {/* <div className="footer-links">
           <a href="#">Privacy Policy</a>
           <span>|</span>

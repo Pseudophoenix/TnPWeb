@@ -74,45 +74,48 @@ function App() {
   //   ]
   // }
   return (
-    <div className="min-h-screen bg-gradient-to-r to-[#d1d7e3] from-[#f5f7fa]">
-      <div className="pt-[120px]">
-        <AuthProvider>
-          <BrowserRouter>
-            <Header></Header>
-            {/* <nav>
+    <>
+      {/* bg-gradient-to-r to-[#d1d7e3] from-[#f5f7fa] */}
+      <div className="min-h-screen ">
+        <div className="pt-[120px]">
+          <AuthProvider>
+            <BrowserRouter>
+              <Header></Header>
+              {/* <nav>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/form">Form</NavLink>
           </nav> */}
 
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/recruitment-procedure" element={<Timeline />} />
-              <Route path="/director's-message" element={<AboutMessage ></AboutMessage>} />
-              <Route path="/form" element={<PrivateRoute>
-                <Form />
-              </PrivateRoute>} />
-              <Route path="/student-login" element={<Login />} />
-              <Route path="/statistics" element={<StatisticsDashboard />} />
-              <Route path="/student-signup" element={<Register />} />
-              <Route path="/download-brochure" element={<InterviewPrep />} />
-              <Route path="/policy" element={<InterviewPrep />} />
-              <Route path="/profile" element={<ProfileComponent />} />
-              <Route path="/our-team" element={<ProfileCard />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-          {/* <Login></Login> */}
-          {/* <Timeline /> */}
-          {/* <Form></Form> */}
-          {/* <InterviewPrep pdfSrc={"https://savarkar.org/en/pdfs/hindu-rashtra-darshan-en-v002.pdf"} /> */}
-          {/* <AboutMessage ></AboutMessage> */}
-          {/* <HorizontalImageCards cards={cards.cards}></HorizontalImageCards> */}
-        </AuthProvider>
-      </div>
-          <Tail></Tail>
-    </div >
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/recruitment-procedure" element={<Timeline />} />
+                <Route path="/director's-message" element={<AboutMessage ></AboutMessage>} />
+                <Route path="/form" element={<PrivateRoute>
+                  <Form />
+                </PrivateRoute>} />
+                <Route path="/student-login" element={<Login />} />
+                <Route path="/statistics" element={<StatisticsDashboard title={"Placement Statistics"} />} />
+                <Route path="/student-signup" element={<Register />} />
+                <Route path="/download-brochure" element={<InterviewPrep title={"Brochure"} />} />
+                <Route path="/policy" element={<InterviewPrep title={"Policy"} />} />
+                <Route path="/profile" element={<ProfileComponent />} />
+                <Route path="/our-team" element={<ProfileCard />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <Tail></Tail>
+            </BrowserRouter>
+            {/* <Login></Login> */}
+            {/* <Timeline /> */}
+            {/* <Form></Form> */}
+            {/* <InterviewPrep pdfSrc={"https://savarkar.org/en/pdfs/hindu-rashtra-darshan-en-v002.pdf"} /> */}
+            {/* <AboutMessage ></AboutMessage> */}
+            {/* <HorizontalImageCards cards={cards.cards}></HorizontalImageCards> */}
+          </AuthProvider>
+        </div>
+      </div >
+    </>
   );
 }
 

@@ -38,7 +38,8 @@ const Timeline = () => {
   return (
     <div className="card-container-about-message">
       <div className="about-message">
-        <div className="min-h-screen, fom">
+        <div className="min-h-screen, fom" style={{padding:"1rem 2rem"}}> {/* CHANGED THE PADDING FROM 4rem 4rem --> 4rem 2rem */}
+            <h2 className="team-profiles__heading">Recruitment Procedure</h2>
           <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
             {/* Timeline */}
             <div className="w-full lg:w-1/2">

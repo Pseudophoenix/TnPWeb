@@ -36,7 +36,7 @@ const Register = () => {
 
         if (!formData.email) {
             errors.email = "Email is required";
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+        } else if (!/\S+@iiitmanipur.ac.in/.test(formData.email)) {
             errors.email = "Email is invalid";
         }
 
