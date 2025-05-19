@@ -1,6 +1,8 @@
 @use '../styles/variables' as v;
 @use 'sass:color';
 
+// Original .tail-container
+/*
 .tail-container {
   background: v.$primaryGradient;
   color: v.$textLight;
@@ -14,15 +16,68 @@
   bottom: 0;
   left: 0;
   // position: fixed;
-  /* Make it stick to the bottom */
   // bottom: 0;
-  /* Align it to bottom */
   // left: 0;
   width: 100vw;
   // position: relative;
   box-sizing: border-box;
 }
+*/
+// Original erroneous .tail-container (first attempt)
+/*
+.tail-container {
+  background: linear-gradient(135deg, color.adjust(v.$primaryGradient, $alpha: -0.1), color.adjust(v.$primaryGradient, $alpha: -0.2));
+  color: v.$textLight;
+  padding: 40px 0 15px;
+  margin-top: 20px;
+  font-family: 'Inter', sans-serif;
+  z-index: 1000;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+}
+*/
+// Original erroneous .tail-container (second attempt)
+/*
+.tail-container {
+  background: v.$primaryGradient;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), v.$primaryGradient;
+  color: v.$textLight;
+  padding: 40px 0 15px;
+  margin-top: 20px;
+  font-family: 'Inter', sans-serif;
+  z-index: 1000;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+}
+*/
+// Fixed .tail-container
+.tail-container {
+  // Fixed: Use v.$primaryGradient directly as the background
+  background: v.$primaryGradient;
+  color: v.$textLight;
+  // Original: padding: 60px 0 20px
+  // Reduced padding for mobile compactness
+  padding: 40px 0 15px;
+  // Original: margin-top: 40px
+  // Reduced margin for mobile
+  margin-top: 20px;
+  font-family: 'Inter', sans-serif;
+  z-index: 1000;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  box-sizing: border-box;
+}
 
+// Original .tail-content
+/*
 .tail-content {
   display: flex;
   flex-wrap: wrap;
@@ -32,7 +87,22 @@
   margin: 0 auto;
   padding: 0 5%;
 }
+*/
+// Updated .tail-content
+.tail-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  // Original: padding: 0 5%
+  // Reduced padding for mobile
+  padding: 0 3%;
+}
 
+// Original .tail-section
+/*
 .tail-section {
   flex: 1;
   min-width: 250px;
@@ -58,17 +128,84 @@
     }
   }
 }
+*/
+// Updated .tail-section
+.tail-section {
+  flex: 1;
+  // Original: min-width: 250px
+  // Reduced min-width for mobile
+  min-width: 200px;
+  // Original: margin-bottom: 30px
+  // Reduced margin for mobile
+  margin-bottom: 20px;
+  // Original: padding: 0 15px
+  // Reduced padding for mobile
+  padding: 0 10px;
 
+  h3 {
+    color: #fff;
+    // Original: font-size: 1.2rem
+    // Slightly larger for better hierarchy
+    font-size: 1.3rem;
+    font-weight: 700;
+    // Original: margin-bottom: 20px
+    // Reduced margin for mobile
+    margin-bottom: 15px;
+    // Original: padding-bottom: 10px
+    // Adjusted for consistency
+    padding-bottom: 8px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      // Original: width: 50px
+      // Slightly shorter for mobile
+      width: 40px;
+      height: 2px;
+      background: v.$secondaryColor1;
+    }
+  }
+}
+
+// Original .about-section
+/*
 .about-section p {
   margin-bottom: 20px;
   line-height: 1.6;
   color: v.$textLight;
 }
+*/
+// Updated .about-section
+.about-section p {
+  // Original: margin-bottom: 20px
+  // Reduced margin for mobile
+  margin-bottom: 15px;
+  // Original: line-height: 1.6
+  // Slightly tighter for mobile
+  line-height: 1.5;
+  color: v.$textLight;
+  // Added font-size for better readability
+  font-size: 0.95rem;
+}
 
+// Original .contact-info
+/*
 .contact-info {
   margin-top: 15px;
 }
+*/
+// Updated .contact-info
+.contact-info {
+  // Original: margin-top: 15px
+  // Adjusted for mobile
+  margin-top: 10px;
+}
 
+// Original .contact-item
+/*
 .contact-item {
   display: flex;
   align-items: flex-start;
@@ -85,7 +222,35 @@
     color: v.$textLight;
   }
 }
+*/
+// Updated .contact-item
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  // Original: margin-bottom: 12px
+  // Reduced for mobile
+  margin-bottom: 10px;
 
+  i {
+    // Original: margin-right: 10px
+    // Slightly reduced for mobile
+    margin-right: 8px;
+    color: v.$secondaryColor1;
+    margin-top: 3px;
+    // Added font-size for consistency
+    font-size: 1rem;
+  }
+
+  span {
+    line-height: 1.5;
+    color: v.$textLight;
+    // Added font-size for readability
+    font-size: 0.95rem;
+  }
+}
+
+// Original .quick-links, .resources
+/*
 .quick-links,
 .resources {
   ul {
@@ -116,7 +281,50 @@
     }
   }
 }
+*/
+// Updated .quick-links, .resources
+.quick-links,
+.resources {
+  ul {
+    list-style: none;
+    padding: 0;
+  }
 
+  li {
+    // Original: margin-bottom: 12px
+    // Reduced for mobile
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: v.$textLight;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    // Added font-size for readability
+    font-size: 0.95rem;
+
+    i {
+      // Original: margin-right: 8px
+      // Slightly adjusted for mobile
+      margin-right: 7px;
+      color: v.$secondaryColor1;
+      font-size: 0.8rem;
+    }
+
+    &:hover {
+      color: v.$secondaryColor1;
+      transform: translateX(5px);
+    }
+  }
+}
+
+// Major part of the this file is just commented 
+
+
+// Original .social-icons
+/*
 .social-icons {
   display: flex;
   gap: 15px;
@@ -133,10 +341,9 @@
     transition: all 0.3s ease;
     color: #fff;
     text-decoration: none;
-    position: relative; // Added for exact positioning
-    box-sizing: content-box; // Ensure size calculations don't include padding
+    position: relative;
+    box-sizing: content-box;
 
-    // Fix for React Icons to center properly in circle
     svg {
       width: 18px;
       height: 18px;
@@ -156,7 +363,68 @@
     font-size: 1.2rem;
   }
 }
+*/
+// Updated .social-icons
+.social-icons {
+  display: flex;
+  // Original: gap: 15px
+  // Reduced gap for mobile
+  gap: 12px;
+  // Original: margin-bottom: 25px
+  // Reduced for mobile
+  margin-bottom: 20px;
 
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // Original: width: 40px; height: 40px
+    // Slightly smaller for mobile
+    width: 36px;
+    height: 36px;
+    // Enhanced background for visual appeal
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    box-sizing: content-box;
+    // Added subtle border for definition
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    svg {
+      // Original: width: 18px; height: 18px
+      // Slightly smaller for mobile
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+      background-color: v.$secondaryColor2;
+      transform: translateY(-3px);
+      // Added box-shadow for hover effect
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    // Added focus state for accessibility
+    &:focus {
+      outline: 2px solid v.$secondaryColor1;
+      outline-offset: 2px;
+    }
+  }
+
+  i {
+    font-size: 1.2rem;
+  }
+}
+
+// Original .newsletter
+/*
 .newsletter {
   h4 {
     margin-bottom: 15px;
@@ -164,7 +432,22 @@
     color: #fff;
   }
 }
+*/
+// Updated .newsletter
+.newsletter {
+  h4 {
+    // Original: margin-bottom: 15px
+    // Reduced for mobile
+    margin-bottom: 12px;
+    // Original: font-size: 1rem
+    // Slightly larger for hierarchy
+    font-size: 1.1rem;
+    color: #fff;
+  }
+}
 
+// Original .newsletter-form
+/*
 .newsletter-form {
   display: flex;
 
@@ -191,7 +474,64 @@
     }
   }
 }
+*/
+// Updated .newsletter-form
+.newsletter-form {
+  display: flex;
 
+  input {
+    flex: 1;
+    // Original: padding: 10px 15px
+    // Slightly reduced for mobile
+    padding: 8px 12px;
+    border: none;
+    // Added subtle border for definition
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    // Added background for contrast
+    background-color: rgba(255, 255, 255, 0.05);
+    color: v.$textLight;
+    // Added placeholder styling
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    // Added focus state for accessibility
+    &:focus {
+      border-color: v.$secondaryColor1;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  button {
+    // Original: padding: 0 15px
+    // Adjusted for mobile
+    padding: 0 12px;
+    border: none;
+    background-color: v.$secondaryColor1;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: color.adjust(v.$secondaryColor1, $lightness: -10%);
+      // Added scale effect for interactivity
+      transform: scale(1.05);
+    }
+
+    // Added focus state for accessibility
+    &:focus {
+      outline: 2px solid v.$textLight;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// Original .tail-bottom
+/*
 .tail-bottom {
   max-width: 100%;
   width: 100%;
@@ -210,7 +550,37 @@
     color: v.$textLight;
   }
 }
+*/
+// Updated .tail-bottom
+.tail-bottom {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  // Original: padding: 20px 5%
+  // Reduced padding for mobile
+  padding: 15px 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  // Original: margin-top: 30px
+  // Reduced for mobile
+  margin-top: 20px;
 
+  p {
+    // Original: margin: 10px 0
+    // Adjusted for mobile
+    margin: 5px 0;
+    // Original: font-size: 0.9rem
+    // Slightly smaller for mobile
+    font-size: 0.85rem;
+    color: v.$textLight;
+  }
+}
+
+// Original .footer-links
+/*
 .footer-links {
   display: flex;
   align-items: center;
@@ -232,7 +602,42 @@
     color: rgba(255, 255, 255, 0.3);
   }
 }
+*/
+// Updated .footer-links
+.footer-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
+  a {
+    color: v.$textLight;
+    text-decoration: none;
+    // Original: margin: 5px 10px
+    // Reduced margin for mobile
+    margin: 5px 8px;
+    // Original: font-size: 0.9rem
+    // Slightly smaller for mobile
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: v.$secondaryColor1;
+    }
+
+    // Added focus state for accessibility
+    &:focus {
+      outline: 2px solid v.$secondaryColor1;
+      outline-offset: 2px;
+    }
+  }
+
+  span {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+// Original media query
+/*
 @media (max-width: 768px) {
   .tail-section {
     flex-basis: 100%;
@@ -246,5 +651,114 @@
   .footer-links {
     justify-content: center;
     margin-top: 15px;
+  }
+}
+*/
+// Updated media query
+@media (max-width: 768px) {
+  .tail-section {
+    flex-basis: 100%;
+    // Added padding for better spacing
+    padding: 0 8px;
+    // Reduced margin for compactness
+    margin-bottom: 15px;
+  }
+
+  .tail-content {
+    padding: 0 4%;
+  }
+
+  .tail-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+
+    &::after {
+      width: 35px;
+    }
+  }
+
+  .about-section p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .contact-item {
+    margin-bottom: 8px;
+
+    i {
+      font-size: 0.9rem;
+      margin-right: 6px;
+    }
+
+    span {
+      font-size: 0.9rem;
+    }
+  }
+
+  .resources li {
+    margin-bottom: 8px;
+
+    a {
+      font-size: 0.9rem;
+
+      i {
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .social-icons {
+    gap: 10px;
+    margin-bottom: 15px;
+
+    a {
+      width: 32px;
+      height: 32px;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  .newsletter h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .newsletter-form {
+    input {
+      padding: 7px 10px;
+      font-size: 0.9rem;
+    }
+
+    button {
+      padding: 0 10px;
+    }
+  }
+
+  .tail-bottom {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 4%;
+    margin-top: 15px;
+
+    p {
+      font-size: 0.8rem;
+      margin: 5px 0;
+    }
+  }
+
+  .footer-links {
+    justify-content: center;
+    margin-top: 10px;
+
+    a {
+      font-size: 0.8rem;
+      margin: 5px 6px;
+    }
   }
 }
